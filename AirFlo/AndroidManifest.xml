@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.airflo"
+    android:versionCode="6"
+    android:versionName="0.6" >
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="18" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:name="com.airflo.helpers.OnlyContext"
+        android:allowBackup="true"
+        android:icon="@drawable/launcher_airflo"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.airflo.FlightListActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.airflo.FlightDetailActivity"
+            android:label="@string/title_flight_detail_activity"
+            android:parentActivityName=".FlightListActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".FlightListActivity" />
+        </activity>
+        <activity
+            android:name="com.airflo.preferences.ListPreferenceActivity"
+            android:label="@string/title_list_preference_activity" >
+        </activity>
+        <activity
+            android:name="com.airflo.preferences.TypePreferenceActivity"
+            android:label="@string/title_type_preference_activity" >
+        </activity>
+        <activity
+            android:name="com.airflo.preferences.FilePreferenceActivity"
+            android:label="@string/title_file_preferece_activity" >
+        </activity>
+        <activity
+            android:name="com.airflo.preferences.DetailPreferenceActivity"
+            android:label="@string/title_flight_detail_prefs" >
+        </activity>
+    </application>
+
+</manifest>
