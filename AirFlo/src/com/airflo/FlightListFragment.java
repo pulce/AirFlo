@@ -86,6 +86,13 @@ public class FlightListFragment extends ListFragment {
 		}
 		adapter.notifyDataSetChanged();
 	}
+	
+	public void selectOnAdapter(String id) {
+		adapter.select(id);
+		adapter.notifyDataSetChanged();
+		
+		
+	}
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {

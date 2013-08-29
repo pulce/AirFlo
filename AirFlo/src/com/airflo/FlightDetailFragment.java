@@ -49,7 +49,6 @@ public class FlightDetailFragment extends Fragment {
 	private TextView header;
 	private TextView cell;
 	private SharedPreferences sharedPrefs;
-	private LinearLayout layout;
 	private TableLayout table;
 
 	public FlightDetailFragment() {
@@ -69,7 +68,7 @@ public class FlightDetailFragment extends Fragment {
 			Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.fragment_flight_detail,
 				container, false);
-		layout = (LinearLayout) rootView.findViewById(R.id.linearLayout1);
+		table = (TableLayout) rootView.findViewById(R.id.table_detail);
 		addViews();
 		return rootView;
 	}
@@ -78,7 +77,7 @@ public class FlightDetailFragment extends Fragment {
 	 * This method allows the corresponding Activity to refresh the view.
 	 */
 	public void refresh() {
-		layout.removeView(table);
+		table.removeAllViews();
 		addViews();
 	}
 
@@ -87,10 +86,6 @@ public class FlightDetailFragment extends Fragment {
 	 * certain items, textsizes, and handle empty fields.
 	 */
 	public void addViews() {
-		table = new TableLayout(getActivity());
-		LayoutParams lpt = new LayoutParams(LayoutParams.MATCH_PARENT,
-				LayoutParams.WRAP_CONTENT);
-		table.setLayoutParams(lpt);
 		table.setColumnShrinkable(1, true);
 
 		sharedPrefs = PreferenceManager.getDefaultSharedPreferences(OnlyContext
@@ -126,8 +121,5 @@ public class FlightDetailFragment extends Fragment {
 				table.addView(row);
 			}
 		}
-
-		layout.addView(table);
-
 	}
 }

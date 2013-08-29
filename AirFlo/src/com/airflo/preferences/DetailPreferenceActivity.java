@@ -2,11 +2,12 @@ package com.airflo.preferences;
 
 import com.airflo.FlightListActivity;
 import com.airflo.R;
-
+import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.view.MenuItem;
@@ -32,16 +33,18 @@ import android.view.MenuItem;
  *         You should have received a copy of the GNU General Public License
  *         along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-public class DetailPreferenceActivity extends Activity{
+public class DetailPreferenceActivity extends android.support.v4.app.FragmentActivity{
 
+	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_detail_prefs);
-		getActionBar().setDisplayHomeAsUpEnabled(true);
-		
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+			   getActionBar().setDisplayHomeAsUpEnabled(true);
+		}		
 		DetailPreferenceFragment prefFragment = new DetailPreferenceFragment();
-		FragmentManager fragmentManager = getFragmentManager();
+		FragmentManager fragmentManager = getSupportFragmentManager();
 		FragmentTransaction fragmentTransaction = fragmentManager
 				.beginTransaction();
 		fragmentTransaction.replace(android.R.id.content, prefFragment);

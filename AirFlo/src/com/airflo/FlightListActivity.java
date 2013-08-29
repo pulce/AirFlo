@@ -34,6 +34,7 @@ package com.airflo;
  *         along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 import com.airflo.datamodel.FlightData;
+import com.airflo.datamodel.FlightData.FlightDataItem;
 import com.airflo.datamodel.ParseFlightBook;
 import com.airflo.preferences.DetailPreferenceActivity;
 import com.airflo.preferences.FilePreferenceActivity;
@@ -52,6 +53,7 @@ import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.LinearLayout;
 
 public class FlightListActivity extends FragmentActivity implements
 		FlightListFragment.Callbacks {
@@ -170,7 +172,7 @@ public class FlightListActivity extends FragmentActivity implements
 			if (resultCode == RESULT_OK) {
 				Editor edit = sharedPrefs.edit();
 				edit.putString("flightBookName", data.getStringExtra("result"));
-				edit.apply();
+				edit.commit();
 				FlightData.reset();
 				tryToLoadBook();
 				refreshView();
@@ -201,6 +203,15 @@ public class FlightListActivity extends FragmentActivity implements
 			// In two-pane mode, show the detail view in this activity by
 			// adding or replacing the detail fragment using a
 			// fragment transaction.
+			
+			
+			//Mark
+			FlightListFragment frag = (FlightListFragment) getSupportFragmentManager().findFragmentById(
+					R.id.flight_list);
+			frag.selectOnAdapter(id);
+			
+			
+			
 			Bundle arguments = new Bundle();
 			arguments.putString(FlightDetailFragment.ARG_ITEM_ID, id);
 			flightDetailFragment = new FlightDetailFragment();
@@ -218,7 +229,7 @@ public class FlightListActivity extends FragmentActivity implements
 			startActivity(detailIntent);
 		}
 	}
-
+	
 	/**
 	 * Method will advise the fragment to flush the data adapter.
 	 */

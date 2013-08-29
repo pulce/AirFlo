@@ -1,8 +1,9 @@
 package com.airflo;
 
 import com.airflo.R;
-
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.NavUtils;
@@ -34,11 +35,14 @@ import android.view.MenuItem;
 
 public class FlightDetailActivity extends FragmentActivity {
 
+	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_flight_detail);
-		getActionBar().setDisplayHomeAsUpEnabled(true);
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+			getActionBar().setDisplayHomeAsUpEnabled(true);
+		}
 		if (savedInstanceState == null) {
 			Bundle arguments = new Bundle();
 			arguments.putString(FlightDetailFragment.ARG_ITEM_ID, getIntent()
@@ -54,8 +58,9 @@ public class FlightDetailActivity extends FragmentActivity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case android.R.id.home:
-			Intent intent = new Intent(this, FlightListActivity.class);  
-			intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); //Resume saved State!		
+			Intent intent = new Intent(this, FlightListActivity.class);
+			intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); // Resume saved
+																// State!
 			NavUtils.navigateUpTo(this, intent);
 			return true;
 		}

@@ -28,6 +28,7 @@ public class FlightListAdapterOption implements
 		Comparable<FlightListAdapterOption> {
 	private String header;
 	private String data;
+	private boolean selected;
 
 	public FlightListAdapterOption(String header, String data) {
 		this.header = header;
@@ -40,6 +41,14 @@ public class FlightListAdapterOption implements
 
 	public String getHeader() {
 		return header;
+	}
+	
+	public void makeSelected(boolean sel) {
+		this.selected = sel;
+	}
+	
+	public boolean isSelected() {
+		return selected;
 	}
 
 	@Override

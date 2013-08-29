@@ -7,11 +7,11 @@
     android:layout_weight="1"
     android:scrollbars="none" >
 
-    <LinearLayout
-        android:id="@+id/linearLayout1"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" >
-    </LinearLayout>
+    <TableLayout
+        android:id="@+id/table_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+    </TableLayout>
 
 </ScrollView>

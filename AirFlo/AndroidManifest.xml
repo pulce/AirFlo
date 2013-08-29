@@ -2,9 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.airflo"
     android:versionCode="6"
-    android:versionName="0.6" >
+    android:versionName="0.61" >
     <uses-sdk
-        android:minSdkVersion="11"
+        android:minSdkVersion="7"
         android:targetSdkVersion="18" />
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />

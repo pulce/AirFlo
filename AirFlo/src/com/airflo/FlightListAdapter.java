@@ -3,9 +3,11 @@ package com.airflo;
 import java.util.List;
 
 import com.airflo.R;
+import com.airflo.datamodel.FlightData;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -51,6 +53,12 @@ public class FlightListAdapter extends ArrayAdapter<FlightListAdapterOption> {
 	public FlightListAdapterOption getItem(int i) {
 		return objects.get(i);
 	}
+	
+	public void select(String id) {
+		for (int i = 0; i < objects.size(); i++) {
+			objects.get(i).makeSelected(id == FlightData.ITEMS.get(i).content.get("number") ? true : false);
+		}
+	}
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
@@ -72,6 +80,10 @@ public class FlightListAdapter extends ArrayAdapter<FlightListAdapterOption> {
 
 			header.setText(o.getHeader());
 
+			if (o.isSelected())
+				v.setBackgroundColor(Color.LTGRAY);
+			else
+				v.setBackgroundColor(Color.WHITE);
 			TextView body = (TextView) v.findViewById(R.id.ListContent);
 			if (o.getData().length() == 0) {
 				body.setHeight(0);

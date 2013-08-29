@@ -2,12 +2,14 @@ package com.airflo.preferences;
 
 import com.airflo.FlightListActivity;
 import com.airflo.R;
-
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceActivity;
 import android.support.v4.app.NavUtils;
 import android.view.MenuItem;
 
@@ -32,19 +34,24 @@ import android.view.MenuItem;
  *         You should have received a copy of the GNU General Public License
  *         along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-public class TypePreferenceActivity extends Activity{
+public class TypePreferenceActivity extends PreferenceActivity{
 	
+	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_type_prefs);
-		getActionBar().setDisplayHomeAsUpEnabled(true);
+		//setContentView(R.layout.activity_type_prefs);
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+			   getActionBar().setDisplayHomeAsUpEnabled(true);
+		}
+		addPreferencesFromResource(R.xml.typeprefs);
+		/*
 		TypePreferenceFragment typePreferenceFragment = new TypePreferenceFragment();
 		FragmentManager fragmentManager = getFragmentManager();
 		FragmentTransaction fragmentTransaction = fragmentManager
 				.beginTransaction();
 		fragmentTransaction.replace(android.R.id.content, typePreferenceFragment);
-		fragmentTransaction.commit();
+		fragmentTransaction.commit();*/
 	}
 	
 	public boolean onOptionsItemSelected(MenuItem item) {
