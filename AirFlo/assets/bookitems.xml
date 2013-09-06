@@ -1,27 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ressources>
-    <key name="number" unit="">Flight Number</key>
-	<key name="pilot" unit="">Pilot</key>
-    <key name="date" unit="">Flight Date</key>
-	<key name="country" unit="">Country</key>
-	<key name="site" unit="">Flying Site</key>
-	<key name="site2" unit="">Starting Site</key>
-	<key name="landingsite" unit="">Landing Site</key>
-    <key name="starttime" unit="">Starting Time</key>
-    <key name="UTCorr" unit="">UTC Correction</key>
-    <key name="duration" unit="">Duration</key>
-	<key name="startheight" unit="m">Starting Height</key>
-    <key name="maxheight" unit="m">Maximum Height</key>
-	<key name="landheight" unit="m">Landing Height</key>	
-	<key name="heightgain" unit="m">Height Gained</key>
-	<key name="starttype" unit="">Starting Type</key>	        
-	<key name="avgspeed" unit="km/h">Average Speed</key>
-	<key name="maxvario" unit="m/s">Maximum Climb</key>
-	<key name="minvario" unit="m/s">Maximum Sink</key>
-	<key name="glidertyp" unit="">Glider Type</key>
-	<key name="gliderID" unit="">Glider ID</key>
-	<key name="GPSID" unit="">GPS ID</key>
-	<key name="compID" unit="">Competition ID</key>
-	<key name="compClass" unit="">Competition ID</key>			
-	<key name="comment" unit="">Comment</key>			
+    <key name="number" unit="" isPref="true" compType = "int">Flight Number</key>
+	<key name="pilot" unit="" isPref="true" compType = "string">Pilot</key>
+    <key name="date" unit="" isPref="true" compType = "date">Flight Date</key>
+	<key name="country" unit="" isPref="true" compType = "string">Country</key>
+	<key name="site" unit="" isPref="true" compType = "string">Flying Site</key>
+	<key name="site2" unit="" isPref="true" compType = "string">Starting Site</key>
+	<key name="landingsite" unit="" isPref="true" compType = "string">Landing Site</key>
+    <key name="UTCorr" unit="" isPref="true" compType = "time">UTC Correction</key>
+	<key name="starttime" unit="" isPref="true" compType = "time">Starting Time</key>
+    <key name="duration" unit="" isPref="true" compType = "time">Duration</key>
+    <key name="landingtime" unit="" isPref="true" compType = "time">Landing Time</key>
+    <key name="startheight" unit="m" isPref="true" compType = "int">Starting Height</key>
+    <key name="maxheight" unit="m" isPref="true" compType = "int">Maximum Height</key>
+	<key name="landheight" unit="m" isPref="true" compType = "int">Landing Height</key>	
+	<key name="heightgain" unit="m" isPref="true" compType = "int">Height Gained</key>
+	<key name="starttype" unit="" isPref="true" compType = "int">Starting Type</key>	        
+	<key name="avgspeed" unit="km/h" isPref="false" compType = "int">Average Speed</key>
+	<key name="maxvario" unit="m/s" isPref="true" compType = "int">Maximum Climb</key>
+	<key name="minvario" unit="m/s" isPref="false" compType = "int">Maximum Sink</key>
+	<key name="glidertyp" unit="" isPref="true" compType = "string">Glider Type</key>
+	<key name="gliderID" unit="" isPref="false" compType = "string">Glider ID</key>
+	<key name="GPSID" unit="" isPref="false" compType = "string">GPS ID</key>
+	<key name="compID" unit="" isPref="false" compType = "string">Competition ID</key>
+	<key name="compClass" unit="" isPref="false" compType = "string">Competition ID</key>			
+	<key name="comment" unit="" isPref="false" compType = "string">Comment</key>	
+	<key name="olc" unit="" isPref="false" compType = "">OLC</key>
+	<key name="tag" unit="" isPref="false" compType = "">Tag</key>		
 </ressources>

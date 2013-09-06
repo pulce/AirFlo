@@ -41,8 +41,8 @@ public class DetailPreferenceFragment extends ListFragment {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		List<Identi> adList = FlightData.identis.getIdentis();
-		adList.add(0, new Identi("Empty",
-				getString(R.string.detail_pref_empty), ""));
+		adList.set(0, new Identi("Empty",
+				getString(R.string.detail_pref_empty), "", false, ""));
 		adapter = new DetailPreferenceAdapter(getActivity(),
 				R.layout.detail_pref_view, adList);
 		this.setListAdapter(adapter);

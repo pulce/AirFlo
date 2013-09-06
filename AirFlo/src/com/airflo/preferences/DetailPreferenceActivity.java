@@ -3,7 +3,6 @@ package com.airflo.preferences;
 import com.airflo.FlightListActivity;
 import com.airflo.R;
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.content.Intent;
@@ -66,6 +65,4 @@ public class DetailPreferenceActivity extends android.support.v4.app.FragmentAct
 		}
 		return super.onOptionsItemSelected(item);
 	}
-
-	
 }

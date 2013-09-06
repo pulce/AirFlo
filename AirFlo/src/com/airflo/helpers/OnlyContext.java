@@ -2,6 +2,7 @@ package com.airflo.helpers;
 
 import android.app.Application;
 import android.content.Context;
+import android.util.Log;
 
 /**
  * 
@@ -38,9 +39,19 @@ public class OnlyContext extends Application {
 		return mContext;
 	}
 
+	/**
+	 * Method to access Android resource strings.
+	 * @param key
+	 * @return
+	 */
 	public static String rString(String key) {
 		int nam = mContext.getResources().getIdentifier(key, "string",
 				mContext.getPackageName());
+		try {
 		return mContext.getString(nam);
+		} catch (Exception e) {
+			Log.e("String not found", e.toString());
+			return "";
+		}
 	}
 }

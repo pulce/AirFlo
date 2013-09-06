@@ -5,21 +5,23 @@ import java.util.List;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.ListFragment;
 import android.view.View;
 import android.widget.ListView;
 
 import com.airflo.datamodel.FlightData;
+import com.airflo.datamodel.FlightDataComparer;
 import com.airflo.R;
 
 /**
  * 
  * This Class is part of AirFlo.
  * 
- * It provides a list fragment representing a list of Flights. This fragment also supports
- * tablet devices by allowing list items to be given an 'activated' state upon
- * selection. This helps indicate which item is currently being viewed in a
- * {@link FlightDetailFragment}.
+ * It provides a list fragment representing a list of Flights. This fragment
+ * also supports tablet devices by allowing list items to be given an
+ * 'activated' state upon selection. This helps indicate which item is currently
+ * being viewed in a {@link FlightDetailFragment}.
  * <p>
  * Activities containing this fragment MUST implement the {@link Callbacks}
  * interface.
@@ -45,6 +47,7 @@ public class FlightListFragment extends ListFragment {
 	private Callbacks mCallbacks = sDummyCallbacks;
 	private int mActivatedPosition = ListView.INVALID_POSITION;
 	private FlightListAdapter adapter;
+	private static FlightDataComparer compi = new FlightDataComparer();
 
 	public interface Callbacks {
 		public void onItemSelected(String id);
@@ -59,6 +62,7 @@ public class FlightListFragment extends ListFragment {
 		public void onItemSelected(String id) {
 		}
 	};
+	private List<FlightListAdapterOption> flights;
 
 	public FlightListFragment() {
 	}
@@ -66,39 +70,49 @@ public class FlightListFragment extends ListFragment {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		List<FlightListAdapterOption> flights = new ArrayList<FlightListAdapterOption>();
-		for (FlightData.FlightDataItem item:FlightData.ITEMS) {
-			FlightListAdapterOption option = new FlightListAdapterOption(item.getheadItem(), item.getListItem());
-			flights.add(option);
-		}
-		adapter = new FlightListAdapter(getActivity(), R.layout.flight_list_adapter,
-				flights);
-		this.setListAdapter(adapter);
+		refreshAdapter();
 	}
-	
+
 	/**
-	 * This method can be called by the activity to refresh the view.
+	 * This method can be called by the activity to refresh the view. It is also
+	 * responsible for sorting the list according to the preference of the user.
 	 */
 	public void refreshAdapter() {
-		adapter.clear();
-		for (FlightData.FlightDataItem item:FlightData.ITEMS) {
-			adapter.add(new FlightListAdapterOption(item.getheadItem(), item.getListItem()));
+		flights = new ArrayList<FlightListAdapterOption>();
+		String sorter = PreferenceManager.getDefaultSharedPreferences(
+				getActivity()).getString("list_pref_sort", "number");
+		boolean ascend = PreferenceManager
+				.getDefaultSharedPreferences(getActivity())
+				.getString("list_pref_order", "list_pref_sort_decending")
+				.equals("list_pref_sort_ascending");
+		if (sorter.contains(";")) {
+			String[] sortArray = sorter.split(";");
+			compi.sortListBy(sortArray).reverse(ascend);
+		} else {
+			compi.sortListBy(sorter).reverse(ascend);
 		}
-		adapter.notifyDataSetChanged();
+		for (FlightData.FlightDataItem item : FlightData.ITEMS) {
+			FlightListAdapterOption option = new FlightListAdapterOption(
+					item.getheadItem(), item.getListItem());
+			flights.add(option);
+		}
+
+		adapter = new FlightListAdapter(getActivity(),
+				R.layout.flight_list_adapter, flights);
+		this.setListAdapter(adapter);
 	}
-	
+
 	public void selectOnAdapter(String id) {
 		adapter.select(id);
 		adapter.notifyDataSetChanged();
-		
-		
+
 	}
 
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-    	super.onActivityCreated(savedInstanceState);
+	@Override
+	public void onActivityCreated(Bundle savedInstanceState) {
+		super.onActivityCreated(savedInstanceState);
 		getListView().setFastScrollEnabled(true);
-   }
+	}
 
 	@Override
 	public void onViewCreated(View view, Bundle savedInstanceState) {
@@ -136,7 +150,8 @@ public class FlightListFragment extends ListFragment {
 		super.onListItemClick(listView, view, position, id);
 		// Notify the active callbacks interface (the activity, if the
 		// fragment is attached to one) that an item has been selected.
-		mCallbacks.onItemSelected(FlightData.ITEMS.get(position).content.get("number"));
+		mCallbacks.onItemSelected(FlightData.ITEMS.get(position).content
+				.get("number"));
 	}
 
 	@Override
@@ -169,4 +184,5 @@ public class FlightListFragment extends ListFragment {
 
 		mActivatedPosition = position;
 	}
+
 }

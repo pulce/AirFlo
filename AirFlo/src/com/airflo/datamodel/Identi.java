@@ -26,13 +26,21 @@ public class Identi  implements Comparable<Identi>{
 	private String key;
 	private String stringRep;
 	private String unit;
+	private String compType;	
+	private boolean listPref;
 	
-	public Identi(String key, String stringRep, String unit) {
+	public Identi(String key, String stringRep, String unit, boolean listPref, String compType) {
 		this.key = key;
 		this.stringRep = stringRep;
 		this.unit = unit;
+		this.listPref = listPref;
+		this.compType = compType;
 	}
 	
+	public String getCompType() {
+		return compType;
+	}
+
 	public String getUnit() {
 		return unit;
 	}
@@ -43,6 +51,10 @@ public class Identi  implements Comparable<Identi>{
 	
 	public String getStringRep() {
 		return stringRep;
+	}
+	
+	public boolean isListPref() {
+		return listPref;
 	}
 	
 	@Override

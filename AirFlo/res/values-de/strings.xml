@@ -6,7 +6,7 @@
     <string name="about_close_button">Schließen</string>
     <string name="title_flight_detail_activity">Flugbucheintrag</string>
     <string name="title_flight_detail_prefs">Wähle Flugbucheinträge</string>
-    <string name="title_list_preference_activity">Einträge der Flugliste</string>
+    <string name="title_list_preference_activity">Einstellungen Flugliste</string>
     <string name="title_type_preference_activity">Ändere Schriftgröße</string>
     <string name="title_file_preferece_activity">Flugbuch: /</string>
     <string name="type_pref_cat1_title">Schriftgrößen der Flugliste</string>
@@ -20,9 +20,16 @@
     <string name="list_pref_cat1_title">Einträge der ersten Zeile</string>
     <string name="list_pref_cat2_title">Einträge der zweiten Zeile</string>
     <string name="file_pref_message_nozip">Nur .zip Dateien wählbar!</string>
+    <string name="list_pref_hint_selector">"Wähle Eintrag no. "</string>
+    <string name="list_pref_empty_field">Leer</string>
+    <string name="list_pref_sort_ascending">Aufsteigend</string>
+    <string name="list_pref_sort_decending">Absteigend</string>
+    <string name="list_pref_sort_sequence">Sortierreihenfolge</string>
+    <string name="list_pref_sort_criterium">Sortieren nach</string>
+    <string name="list_pref_cat_sort_title">Sortierung</string>
     <string name="detail_pref_empty">--Leere Felder immer verbergen--</string>
     <string name="main_menu_prefdetail">Flugbucheinträge</string>
-    <string name="main_menu_preflist">Einträge der Hauptliste</string>
+    <string name="main_menu_preflist">Einstellungen Flugliste</string>
     <string name="main_menu_loadbook">Flugbuch laden</string>
     <string name="main_menu_typesize">Schriftgrößen</string>
     <string name="number">Flugnummer</string>
@@ -35,6 +42,7 @@
     <string name="starttime">Startzeit</string>
     <string name="UTCorr">UTC Startzeit</string>
     <string name="duration">Flugzeit</string>
+    <string name="landingtime">Landezeit</string>
     <string name="startheight">Starthöhe</string>
     <string name="maxheight">Maximale Höhe</string>
     <string name="landheight">Landehöhe</string>
@@ -49,7 +57,12 @@
     <string name="compID">Comp. ID</string>
     <string name="compClass">Comp. Klasse</string>
     <string name="comment">Kommentar</string>
-    <string name="start_mountain">Hang</string>
+    <string name="olc">OLC</string>
+    <string name="tag">Tag</string>
+    <string name="olcfree">Freier Flug</string>
+    <string name="olctri">Flaches Dreieck</string>
+    <string name="olcfia">FAI Dreieck</string>
+     <string name="start_mountain">Hang</string>
     <string name="start_winch">Winde</string>
     <string name="start_ultralight">Ultralight</string>
     <string name="start_other">Andere</string>
@@ -59,7 +72,10 @@
     <string name="authors_note">        Kontakt: pulce@gmx.at \n
         Copyright 2013 \n
         Florian Hauser</string>
-    <string name="legal_notice">Dieses Programm ist Freie Software: Sie können es unter den Bedingungen
+    <string name="legal_notice">
+    Herzlicher Dank geht an Lars Seifert für die Unterstützung und die AirTome Tag-Icons.
+    \n
+    Dieses Programm ist Freie Software: Sie können es unter den Bedingungen
     der GNU General Public License, wie von der Free Software Foundation,
     Version 3 der Lizenz oder (nach Ihrer Wahl) jeder neueren
     veröffentlichten Version, weiterverbreiten und/oder modifizieren.

@@ -6,16 +6,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
-
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
-
 import com.airflo.helpers.OnlyContext;
-
-import android.content.SharedPreferences;
 import android.content.res.AssetManager;
-import android.preference.PreferenceManager;
 import android.util.Log;
 
 /**
@@ -45,12 +40,10 @@ public class Identis {
 
 	private static Map<String, Identi> identiMap = new LinkedHashMap<String, Identi>();
 	private ArrayList<String> keySet;
-	private SharedPreferences sharedPrefs;
 
 	public Identis() {
-		sharedPrefs = PreferenceManager.getDefaultSharedPreferences(OnlyContext
-				.getContext());
 		// Load all keys from the Assets dir.
+		identiMap.put("empty", new Identi("empty", OnlyContext.rString("list_pref_empty_field"), "", true, ""));
 		AssetManager assetManager = OnlyContext.getContext().getAssets();
 		InputStream input;
 		try {
@@ -71,8 +64,10 @@ public class Identis {
 					if (xpp.getName().equals("key")) {
 						String key = xpp.getAttributeValue(0);
 						String unit = xpp.getAttributeValue(1);
+						boolean listPref = xpp.getAttributeValue(2).equals("true");
+						String compType = xpp.getAttributeValue(3);
 						keySet.add(key);
-						identiMap.put(key, new Identi(key, OnlyContext.rString(key), unit));
+						identiMap.put(key, new Identi(key, OnlyContext.rString(key), unit, listPref, compType));
 					}
 				}
 				xpp.next();
@@ -82,10 +77,9 @@ public class Identis {
 		} catch (XmlPullParserException e) {
 			Log.e("Identis: Pull Parser", e.toString());
 		}
-		// Derive the names associated to keys
 	}
 	
-	public static Identi getIdenti(String key) {
+	public Identi getIdenti(String key) {
 		return identiMap.get(key);
 	}
 
@@ -98,41 +92,21 @@ public class Identis {
 		}
 		return content;
 	}
-
-	/**
-	 * Method to derive all item to be showed in the main list. The items to be
-	 * shown depend on user preferences
-	 * 
-	 * @return An array list with all item keys for the main list.
-	 */
-	public ArrayList<String> getListContent() {
-		ArrayList<String> content = new ArrayList<String>();
-		if (sharedPrefs.getBoolean("listprefnumber", false))
-			content.add("number");
-		if (sharedPrefs.getBoolean("listprefdate", false))
-			content.add("date");
-		if (sharedPrefs.getBoolean("listprefsite", true))
-			content.add("site");
-		if (sharedPrefs.getBoolean("listprefsite2", true))
-			content.add("site2");
-		if (sharedPrefs.getBoolean("listpreflandingsite", false))
-			content.add("landingsite");
-		return content;
-	}
-
-	public ArrayList<String> getHeadContent() {
-		ArrayList<String> content = new ArrayList<String>();
-		if (sharedPrefs.getBoolean("listheadnumber", true))
-			content.add("number");
-		if (sharedPrefs.getBoolean("listheaddate", true))
-			content.add("date");
-		if (sharedPrefs.getBoolean("listheadsite", false))
-			content.add("site");
-		if (sharedPrefs.getBoolean("listheadsite2", false))
-			content.add("site2");
-		if (sharedPrefs.getBoolean("listheadlandingsite", false))
-			content.add("landingsite");
-		return content;
+	
+	public CharSequence[] getPrefListChars(boolean names) {
+		ArrayList<String> listPref = new ArrayList<String>();
+		for (Identi ide:getIdentis()) {
+			if (ide.isListPref()) {
+				if (names)
+					listPref.add(ide.getStringRep());
+				else
+					listPref.add(ide.getKey());
+			}
+		}
+		CharSequence[] resl = new CharSequence[listPref.size()];
+		for (int i = 0; i < resl.length; i++)
+			resl[i] = listPref.get(i);
+		return resl;
 	}
 
 	public ArrayList<String> getKeySet() {

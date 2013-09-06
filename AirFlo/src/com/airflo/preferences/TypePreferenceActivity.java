@@ -2,10 +2,8 @@ package com.airflo.preferences;
 
 import com.airflo.FlightListActivity;
 import com.airflo.R;
+
 import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -36,6 +34,7 @@ import android.view.MenuItem;
  */
 public class TypePreferenceActivity extends PreferenceActivity{
 	
+	@SuppressWarnings("deprecation")
 	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -45,13 +44,6 @@ public class TypePreferenceActivity extends PreferenceActivity{
 			   getActionBar().setDisplayHomeAsUpEnabled(true);
 		}
 		addPreferencesFromResource(R.xml.typeprefs);
-		/*
-		TypePreferenceFragment typePreferenceFragment = new TypePreferenceFragment();
-		FragmentManager fragmentManager = getFragmentManager();
-		FragmentTransaction fragmentTransaction = fragmentManager
-				.beginTransaction();
-		fragmentTransaction.replace(android.R.id.content, typePreferenceFragment);
-		fragmentTransaction.commit();*/
 	}
 	
 	public boolean onOptionsItemSelected(MenuItem item) {

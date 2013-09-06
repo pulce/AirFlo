@@ -1,12 +1,16 @@
 package com.airflo.datamodel;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import android.util.Log;
-
+import android.annotation.SuppressLint;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import com.airflo.helpers.OnlyContext;
 
 /**
@@ -30,11 +34,14 @@ import com.airflo.helpers.OnlyContext;
  *         You should have received a copy of the GNU General Public License
  *         along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
+@SuppressLint("SimpleDateFormat")
 public class FlightData {
 
 	public static List<FlightDataItem> ITEMS = new ArrayList<FlightDataItem>();
 	public static Map<String, FlightDataItem> ITEM_MAP = new HashMap<String, FlightDataItem>();
 	public static Identis identis = new Identis();
+	public static SharedPreferences sharedPrefs = PreferenceManager
+			.getDefaultSharedPreferences(OnlyContext.getContext());
 
 	public static void addItem(FlightDataItem item) {
 		ITEMS.add(0, item);
@@ -53,8 +60,8 @@ public class FlightData {
 
 	/**
 	 * 
-	 * This Class is part of AirFlo. It represents one flight, fererred
-	 * to by a certain key.
+	 * This Class is part of AirFlo. It represents one flight, referred to by a
+	 * certain key.
 	 * 
 	 * @author Florian Hauser Copyright (C) 2013
 	 * 
@@ -79,8 +86,8 @@ public class FlightData {
 
 		/**
 		 * This method handles units and special operations on data. It divides
-		 * min - maxvario by 10 It creates UTC corrected starttimes It handles
-		 * starttype It turns 0 and 00:00:00 to empty fields
+		 * min - maxvario by 10 It creates UTC corrected starttimes. It handles
+		 * starttype. It turns 0 and 00:00:00 to empty fields
 		 * 
 		 * @param data
 		 * @return modified data
@@ -94,41 +101,18 @@ public class FlightData {
 							+ data.substring(data.length() - 1, data.length());
 				}
 			}
-			if (key.equals("starttime") && data.length() > 5) {
-				try {
-					String[] tims = data.split(":");
-					if (getFromKey("UTCorr").length() < 6)
-						return "";
-					String[] utcs = getFromKey("UTCorr").split(":");
-					int sec = Integer.valueOf(tims[2])
-							- Integer.valueOf(utcs[2]);
-					int min = Integer.valueOf(tims[1])
-							- Integer.valueOf(utcs[1]);
-					int hou = Integer.valueOf(tims[0])
-							- Integer.valueOf(utcs[0]);
-
-					if (sec < 0) {
-						min -= 1;
-						sec += 60;
-					}
-					if (min < 0) {
-						hou -= 1;
-						min += 60;
-					}
-					if (hou < 0)
-						hou += 24;
-					String se = (sec < 10 ? "0" + sec : "" + sec);
-					String mi = (min < 10 ? "0" + min : "" + min);
-					String ho = (hou < 10 ? "0" + hou : "" + hou);
-					String utccorr = "" + ho + ":" + mi + ":" + se;
-					putContent("UTCorr", utccorr);
-				} catch (NullPointerException e) {
-					Log.e("Exception", e.toString());
-				} catch (NumberFormatException e) {
-					Log.e("Exception", e.toString());
-				} catch (ArrayIndexOutOfBoundsException e) {
-					Log.e("Exception", e.toString());
+			if (key.equals("avgspeed") && data.length() > 1) {
+				if (modData.length() > 1) {
+					modData = data.substring(0, data.length() - 2) + "."
+							+ data.substring(data.length() - 2);
 				}
+			}
+			if (key.equals("starttime") && data.length() > 5) {
+				putContent("UTCorr", subTime(data, getFromKey("UTCorr")));
+			}
+			if (key.equals("duration")) {
+				this.putContent("landingtime",
+						addTime(getFromKey("starttime"), data));
 			}
 			// Should be handled by xml file!
 			if (key.equals("starttype")) {
@@ -151,8 +135,32 @@ public class FlightData {
 				return "";
 			if (data.equals("00:00:00"))
 				return "";
-			modData += Identis.getIdenti(key).getUnit();
+			modData += identis.getIdenti(key).getUnit();
 			return modData;
+		}
+
+		private static String addTime(String base, String toAdd) {
+			DateFormat formatter = new SimpleDateFormat("HH:mm:ss");
+			try {
+				Date start = (Date) formatter.parse(base);
+				Date dur = (Date) formatter.parse(toAdd);
+				Date sum = new Date(start.getTime() + dur.getTime());
+				return formatter.format(sum);
+			} catch (ParseException e) {
+				return "";
+			}
+		}
+
+		private static String subTime(String base, String toAdd) {
+			DateFormat formatter = new SimpleDateFormat("HH:mm:ss");
+			try {
+				Date start = (Date) formatter.parse(base);
+				Date dur = (Date) formatter.parse(toAdd);
+				Date sum = new Date(start.getTime() - dur.getTime());
+				return formatter.format(sum);
+			} catch (ParseException e) {
+				return "";
+			}
 		}
 
 		/**
@@ -162,22 +170,28 @@ public class FlightData {
 		 */
 		public String getListItem() {
 			String item = "";
-			ArrayList<String> listContent = identis.getListContent();
-			for (int i = 0; i < listContent.size(); i++) {
-				item += content.get(listContent.get(i));
-				if (i < listContent.size() - 1)
-					item += "  -  ";
+			for (int i = 1; i <= 3; i++) {
+				String key = sharedPrefs.getString("listsub" + i, "empty");
+				if (!key.equals("empty")) {
+					if (item.length() > 0)
+						item += "  -  ";
+					item += content.get(key);
+
+				}
 			}
 			return item;
 		}
 
 		public String getheadItem() {
 			String item = "";
-			ArrayList<String> listContent = identis.getHeadContent();
-			for (int i = 0; i < listContent.size(); i++) {
-				item += content.get(listContent.get(i));
-				if (i < listContent.size() - 1)
-					item += "  -  ";
+			for (int i = 1; i <= 3; i++) {
+				String key = sharedPrefs.getString("listhead" + i, "empty");
+				if (!key.equals("empty")) {
+					if (item.length() > 0)
+						item += "  -  ";
+					item += content.get(key);
+
+				}
 			}
 			return item;
 		}

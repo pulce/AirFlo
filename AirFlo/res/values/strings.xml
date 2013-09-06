@@ -6,7 +6,7 @@
     <string name="about_close_button">Close</string>
     <string name="title_flight_detail_activity">Flight Detail</string>
     <string name="title_flight_detail_prefs">Select Flight Detail Items</string>
-    <string name="title_list_preference_activity">Select Flight List Items</string>
+    <string name="title_list_preference_activity">Flight List Preferences</string>
     <string name="title_type_preference_activity">Adjust Textsize</string>
     <string name="title_file_preferece_activity">Load Flightbook: /</string>
     <string name="type_pref_cat1_title">Textsize of Main Flightlist</string>
@@ -19,9 +19,16 @@
     <string name="type_pref_detail_title">Flightdetails</string>
     <string name="list_pref_cat1_title">Items in first Line</string>
     <string name="list_pref_cat2_title">Items in second Line</string>
+    <string name="list_pref_hint_selector">"Select Item no. "</string>
+    <string name="list_pref_empty_field">None</string>
     <string name="file_pref_message_nozip">Only .zip Files allowed!</string>
-    <string name="main_menu_prefdetail">Detail Flight List Prefs</string>
-    <string name="main_menu_preflist">Main Flight List Prefs</string>
+    <string name="list_pref_sort_ascending">Ascending</string>
+    <string name="list_pref_sort_decending">Decending</string>
+    <string name="list_pref_sort_sequence">Sort Sequence</string>
+    <string name="list_pref_sort_criterium">Sort Criteria</string>
+    <string name="list_pref_cat_sort_title">Sorting Preferences</string>
+    <string name="main_menu_prefdetail">Flight Detail Preferences</string>
+    <string name="main_menu_preflist">Flight List Preferences</string>
     <string name="main_menu_loadbook">Load FlightBook</string>
     <string name="main_menu_typesize">Adjust Textsize</string>
     <string name="detail_pref_empty">--Hide empty fields in flight details--</string>
@@ -35,6 +42,7 @@
     <string name="starttime">Launch Time</string>
     <string name="UTCorr">UTC Launch Time</string>
     <string name="duration">Flighttime</string>
+    <string name="landingtime">Landing Time</string>
     <string name="startheight">Start Height</string>
     <string name="maxheight">Maximum Height</string>
     <string name="landheight">Landing Height</string>
@@ -49,6 +57,11 @@
     <string name="compID">Competition ID</string>
     <string name="compClass">Competition Class</string>
     <string name="comment">Comment</string>
+    <string name="olc">OLC</string>
+    <string name="tag">Tag</string>
+    <string name="olcfree">Free Flight</string>
+    <string name="olctri">Free Triangle</string>
+    <string name="olcfia">FAI Triangle</string>
     <string name="start_mountain">Mountain</string>
     <string name="start_winch">Winch</string>
     <string name="start_ultralight">Ultralight</string>
@@ -59,7 +72,10 @@
     <string name="authors_note">        Contact: pulce@gmx.at \n
         Copyright 2013 \n
         by Florian Hauser</string>
-    <string name="legal_notice">    This program is free software: you can redistribute it and/or modify
+    <string name="legal_notice">    Credits go out to Lars Seifert for 
+    support and for supplying the original AirTome tag icons.
+    \n
+    This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version. \n

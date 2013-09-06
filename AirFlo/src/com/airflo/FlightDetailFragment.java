@@ -1,6 +1,5 @@
 package com.airflo;
 
-import android.app.ActionBar.LayoutParams;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -8,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -50,6 +50,7 @@ public class FlightDetailFragment extends Fragment {
 	private TextView cell;
 	private SharedPreferences sharedPrefs;
 	private TableLayout table;
+	private View rootView;
 
 	public FlightDetailFragment() {
 	}
@@ -66,8 +67,8 @@ public class FlightDetailFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View rootView = inflater.inflate(R.layout.fragment_flight_detail,
-				container, false);
+		rootView = inflater.inflate(R.layout.fragment_flight_detail, container,
+				false);
 		table = (TableLayout) rootView.findViewById(R.id.table_detail);
 		addViews();
 		return rootView;
@@ -102,23 +103,44 @@ public class FlightDetailFragment extends Fragment {
 					if (mItem.getFromKey(identi.getKey()).equals(""))
 						continue;
 				}
-				TableRow row = new TableRow(getActivity());
+				if (identi.getKey().equals("tag")) {
+					if (mItem.getFromKey(identi.getKey()).length() > 0) {
+						LinearLayout lnn = (LinearLayout) rootView
+								.findViewById(R.id.LinearAdditionLayout);
+						String[] tags = mItem.getFromKey(identi.getKey())
+								.split(";");
+						for (String tag : tags) {
+							if (tag.equals("off-field"))
+								tag = "off_field";
+							int resID = getResources().getIdentifier(tag,
+									"drawable", "com.airflo");
+							ImageView img = new ImageView(getActivity());
+							img.setImageResource(resID);
+							img.setPadding(8, 14, 8, 0);
+							lnn.addView(img);
+						}
+					}
 
-				header = new TextView(getActivity());
-				header.setSingleLine();
-				header.setTextSize(detSize);
-				header.setText(identi.getStringRep());// oneLine[0]);
-				header.setPadding(6, 4, 10, 4);
-				row.addView(header);
+				} else {
+					TableRow row = new TableRow(getActivity());
 
-				cell = new TextView(getActivity());
-				cell.setSingleLine(false);
-				cell.setTextSize(detSize);
-				cell.setText(mItem.getFromKey(identi.getKey()));// oneLine[1]);
-				cell.setPadding(6, 4, 6, 4);
-				row.addView(cell);
+					header = new TextView(getActivity());
+					header.setSingleLine();
+					header.setTextSize(detSize);
+					header.setText(identi.getStringRep());
+					header.setPadding(6, 4, 10, 4);
+					row.addView(header);
 
-				table.addView(row);
+					cell = new TextView(getActivity());
+					cell.setSingleLine(false);
+					cell.setTextSize(detSize);
+					cell.setText(mItem.getFromKey(identi.getKey()));
+					cell.setPadding(6, 4, 6, 4);
+					row.addView(cell);
+
+					table.addView(row);
+				}
+
 			}
 		}
 	}
