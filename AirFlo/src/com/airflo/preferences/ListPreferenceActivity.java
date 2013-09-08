@@ -56,6 +56,7 @@ public class ListPreferenceActivity extends PreferenceActivity {
 				this);
 		
 		//Array of sorting preference keys to be included. 
+		//SortType must be specified in bookitems.xml!
 		String[] sortValues = new String[]{
 				"number", 
 				"date;starttime", 

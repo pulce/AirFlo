@@ -7,3 +7,4 @@
 - Reorganized Flightlistpreferences. One can nor select the order of elements,
 	and one can sort by different criteria.
 - BugFix: Missing decimal separator at OLC Speed.
+ -> V 0.7

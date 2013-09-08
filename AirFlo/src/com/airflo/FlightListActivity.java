@@ -57,7 +57,7 @@ public class FlightListActivity extends FragmentActivity implements
 		FlightListFragment.Callbacks {
 
 	private SharedPreferences sharedPrefs;
-	private static final String VERSIONID = "0.6";
+	private static final String VERSIONID = "0.7";
 	private static final int TYPE_PREF = 1;
 	private static final int FILE_CHOOSER = 2;
 	private static final int LIST_SET = 3;

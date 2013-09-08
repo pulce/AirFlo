@@ -27,9 +27,9 @@ import android.widget.Toast;
  */
 public class FilePreferenceFragment extends ListFragment {
 
-	public File currentDir;
+	private File currentDir;
 	private FilePreferenceAdapter adapter;
-	Stack<File> dirStack = new Stack<File>();
+	private Stack<File> dirStack = new Stack<File>();
 
 	public FilePreferenceFragment() {
 	}
@@ -87,10 +87,10 @@ public class FilePreferenceFragment extends ListFragment {
 		List<FilePreferenceAdapterOption> fls = new ArrayList<FilePreferenceAdapterOption>();
 		try {
 			for (File ff : dirs) {
-				if (ff.isDirectory())
+				if (ff.isDirectory()) {
 					dir.add(new FilePreferenceAdapterOption(ff.getName(), "Folder", ff
 							.getAbsolutePath()));
-				else {
+				} else {
 					fls.add(new FilePreferenceAdapterOption(ff.getName(), "File Size: "
 							+ ff.length(), ff.getAbsolutePath()));
 				}

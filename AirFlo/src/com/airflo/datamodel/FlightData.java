@@ -1,6 +1,7 @@
 package com.airflo.datamodel;
 
 import java.text.DateFormat;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -8,9 +9,11 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+
 import com.airflo.helpers.OnlyContext;
 
 /**
@@ -68,6 +71,9 @@ public class FlightData {
 	 */
 	public static class FlightDataItem {
 		public Map<String, String> content = new HashMap<String, String>();
+		public Map<String, String> sortContent = new HashMap<String, String>();
+		private DateFormat dateParser = new SimpleDateFormat("dd.MM.yyyy");
+		private DateFormat dateFormatter = new SimpleDateFormat("yyyyMMdd");
 
 		public FlightDataItem() {
 		}
@@ -82,12 +88,14 @@ public class FlightData {
 		public void putContent(String key, String data) {
 			String modData = specialOp(key, data);
 			content.put(key, modData);
+			String sortData = transform(key, modData);
+			sortContent.put(key, sortData);
 		}
 
 		/**
 		 * This method handles units and special operations on data. It divides
 		 * min - maxvario by 10 It creates UTC corrected starttimes. It handles
-		 * starttype. It turns 0 and 00:00:00 to empty fields
+		 * starttype. It returns 0 and 00:00:00 to empty fields
 		 * 
 		 * @param data
 		 * @return modified data
@@ -131,6 +139,8 @@ public class FlightData {
 				if (data.equals("7"))
 					modData = OnlyContext.rString("start_ground");
 			}
+			if (identis.getIdenti(key).getCompType().length() > 0)
+				sortContent.put(key, transform(key, modData));
 			if (data.equals("0"))
 				return "";
 			if (data.equals("00:00:00"))
@@ -208,6 +218,39 @@ public class FlightData {
 			}
 			return table;
 		}
+		
+		/**
+		 * This method transforms each string into another sortable string.
+		 * @param item
+		 * @return sortable String
+		 */
+		private String transform(String compKey, String itemData) {
+			String compType = FlightData.identis.getIdenti(compKey)
+					.getCompType();
+			if (itemData.length() == 0 || itemData == null)
+				return "";
+			if (compType.equals("int")) {
+				try {
+					Double val = Double.valueOf(itemData);
+					DecimalFormat df = new DecimalFormat(
+							"00000000000000.000");
+					return df.format(val);
+				} catch (Exception e) {
+					return "";
+				}
+			}
+			if (compType.equals("date")) {
+				try {
+					Date dt = (Date) dateParser.parse(itemData);
+					return dateFormatter.format(dt);
+				} catch (ParseException e) {
+					return "";
+				}
+			}
+			return itemData;
+		}
+
+
 
 	}
 }

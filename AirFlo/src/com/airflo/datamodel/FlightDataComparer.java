@@ -1,12 +1,7 @@
 package com.airflo.datamodel;
 
-import java.text.DateFormat;
-import java.text.DecimalFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Date;
 import android.annotation.SuppressLint;
 import com.airflo.datamodel.FlightData.FlightDataItem;
 
@@ -35,10 +30,6 @@ import com.airflo.datamodel.FlightData.FlightDataItem;
 public class FlightDataComparer {
 
 	private Comparator<FlightDataItem> compi;
-	private DateFormat timeParser = new SimpleDateFormat("HH:mm:ss");
-	private DateFormat timeFormatter = new SimpleDateFormat("HHmmss");
-	private DateFormat dateParser = new SimpleDateFormat("dd.MM.yyyy");
-	private DateFormat dateFormatter = new SimpleDateFormat("yyyyMMdd");
 
 	public FlightDataComparer() {
 	}
@@ -48,57 +39,14 @@ public class FlightDataComparer {
 	}
 
 	public FlightDataComparer sortListBy(final String compKey) {
-		final String compType = FlightData.identis.getIdenti(compKey)
-				.getCompType();
 
 		compi = new Comparator<FlightDataItem>() {
 			public int compare(FlightDataItem o1, FlightDataItem o2) {
-				String t1 = (transform(o1));
-				String t2 = (transform(o2));
+				String t1 = o1.sortContent.get(compKey);
+				String t2 = o2.sortContent.get(compKey);
 				return (t1.compareTo(t2));
 			}
 			
-			/**
-			 * This method transforms each string into another sortable string.
-			 * @param item
-			 * @return sortable String
-			 */
-			private String transform(FlightDataItem item) {
-				String itemData = item.getFromKey(compKey);
-				// if itemData
-				if (itemData.length() == 0 || itemData == null)
-					return "";
-				if (compType.equals("string"))
-					return itemData;
-				if (compType.equals("int")) {
-					try {
-						itemData = itemData.replaceAll("[^0-9.]", "");
-						Double val = Double.valueOf(itemData);
-						DecimalFormat df = new DecimalFormat(
-								"00000000000000.000");
-						return df.format(val);
-					} catch (Exception e) {
-						return "";
-					}
-				}
-				if (compType.equals("date")) {
-					try {
-						Date dt = (Date) dateParser.parse(itemData);
-						return dateFormatter.format(dt);
-					} catch (ParseException e) {
-						return "";
-					}
-				}
-				if (compType.equals("time")) {
-					try {
-						Date dt = (Date) timeParser.parse(itemData);
-						return timeFormatter.format(dt);
-					} catch (ParseException e) {
-						return "";
-					}
-				}
-				return "";
-			}
 		};
 		Collections.sort(FlightData.ITEMS, compi);
 		return this;

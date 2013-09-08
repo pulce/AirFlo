@@ -157,6 +157,7 @@ public class ParseFlightBook {
 		bookLoaded = true;
 		return true;
 	}
+	
 
 	/**
 	 * Special treatment for parsing OLC.
