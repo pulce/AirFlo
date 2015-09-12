@@ -35,6 +35,7 @@ package com.airflo;
  */
 import com.airflo.datamodel.FlightData;
 import com.airflo.datamodel.ParseFlightBook;
+import com.airflo.helpers.CheckForUpdates;
 import com.airflo.helpers.DrawerListAdapter;
 import com.airflo.helpers.NavItem;
 import com.airflo.preferences.DetailPreferenceFragment;
@@ -72,7 +73,8 @@ public class FlightListActivity extends AppCompatActivity implements
 	private SharedPreferences sharedPrefs;
 	private SharedPreferences.OnSharedPreferenceChangeListener sharedPrefsListner;
 
-	private static final String VERSIONID = "0.8";
+	public static final String APPURL = "https://github.com/pulce/AirFlo/releases/latest";
+	public static final String VERSIONID = "0.8";
 	public static final int TYPE_PREF = 1;
 	public static final int FILE_CHOOSER = 2;
 	public static final int LIST_SET = 3;
@@ -156,6 +158,7 @@ public class FlightListActivity extends AppCompatActivity implements
 		mNavItems.add(new NavItem(R.id.action_preflist, R.string.main_menu_preflist, R.drawable.ic_view_list_grey600_36dp));
 		mNavItems.add(new NavItem(R.id.action_prefdetail, R.string.main_menu_prefdetail, R.drawable.ic_description_grey600_36dp));
 		mNavItems.add(new NavItem(R.id.action_about, R.string.about, R.drawable.ic_info_outline_grey600_36dp));
+		mNavItems.add(new NavItem(R.id.action_update, R.string.check_for_updates, R.drawable.ic_file_download_grey600_36dp));
 
 		if (!ParseFlightBook.isBookLoaded()) {
 			tryToLoadBook();
@@ -279,6 +282,9 @@ public class FlightListActivity extends AppCompatActivity implements
 				break;
 			case R.id.action_about:
 				AboutDialog.makeDialog(this, VERSIONID);
+				break;
+			case R.id.action_update:
+				new CheckForUpdates(this).execute(VERSIONID);
 				break;
 			default:
 		}

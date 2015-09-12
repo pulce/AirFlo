@@ -1,24 +1,23 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
         android:id="@+id/action_load"
-        android:title="@string/main_menu_loadbook">
-    </item>
+        android:title="@string/main_menu_loadbook"></item>
     <item
         android:id="@+id/action_typesize"
-        android:title="@string/main_menu_typesize">
-    </item>
+        android:title="@string/main_menu_typesize"></item>
     <item
         android:id="@+id/action_preflist"
-        android:title="@string/main_menu_preflist">
-    </item>
+        android:title="@string/main_menu_preflist"></item>
     <item
         android:id="@+id/action_prefdetail"
-        android:title="@string/main_menu_prefdetail">
-    </item>
+        android:title="@string/main_menu_prefdetail"></item>
     <item
         android:id="@+id/action_about"
-        android:title="@string/about">
-    </item>
+        android:title="@string/about"></item>
+    <item
+        android:id="@+id/action_update"
+        android:orderInCategory="100"
+        android:title="@string/check_for_updates" />
 
 </menu>

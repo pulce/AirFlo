@@ -92,5 +92,9 @@
     <string name="title_activity_maps">Map</string>
     <string name="menu_open_map">Open Map</string>
     <string name="no_igc_file">No igc file for this flight</string>
+    <string name="check_for_updates">Check for updates</string>
+    <string name="check_for_updates_failed">Check for updates failed</string>
+    <string name="already_latest_version">You are using the latest version</string>
+    <string name="new_version_available">is available, you use</string>
 
 </resources>

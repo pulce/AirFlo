@@ -91,5 +91,9 @@
     <string name="drawer_open">Öffne Navigation</string>
     <string name="menu_open_map">Open Map</string>
     <string name="no_igc_file">No igc file for this flight</string>
+    <string name="check_for_updates">Auf Updates prüfen</string>
+    <string name="check_for_updates_failed">Suche nach Updates fehlgeschlagen.</string>
+    <string name="already_latest_version">Sie verwenden die aktuellste Version</string>
+    <string name="new_version_available">ist verfügbar, Sie benutzen</string>
 
 </resources>
