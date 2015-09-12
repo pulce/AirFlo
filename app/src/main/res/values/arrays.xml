@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="typeSize">
+        <item name="8">8</item>
+        <item name="12">12</item>
+        <item name="16">16</item>
+        <item name="20">20</item>
+        <item name="24">24</item>
+    </string-array>
+
+    <string-array name="tileservers">
+        <item>Google Maps</item>
+        <item>Google Satellite</item>
+        <item>Google Terrain</item>
+        <item>Google Hybrid</item>
+        <item>http://otile1.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpg</item>
+        <item>http://a.tile.thunderforest.com/cycle/{z}/{x}/{y}.png</item>
+        <item>http://a.tile.thunderforest.com/landscape/{z}/{x}/{y}.png</item>
+        <item>http://a.tile.thunderforest.com/outdoors/{z}/{x}/{y}.png</item>
+    </string-array>
+
+    <string-array name="mapnames">
+        <item>Google Maps</item>
+        <item>Google Satellite</item>
+        <item>Google Terrain</item>
+        <item>Google Hybrid</item>
+        <item>OSM Mapquest</item>
+        <item>OSM OpenCycleMap</item>
+        <item>OSM Outdoors</item>
+        <item>OSM Landscape</item>
+    </string-array>
+
+</resources>

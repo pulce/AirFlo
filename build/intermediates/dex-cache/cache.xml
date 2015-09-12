@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/home/pulce/AndroidStudioProjects/AirFlo/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-panorama/7.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="565a01f90f1529f73362707c4c185d0623a68782">
+        <dex dex="/home/pulce/AndroidStudioProjects/AirFlo/app/build/intermediates/pre-dexed/debug/classes-195819eb7a5eb7f6e3c1e913e45dc17ad59cbaca.jar" />
+    </item>
+    <item
+        jar="/home/pulce/android-sdk-linux/extras/android/m2repository/com/android/support/support-annotations/22.1.1/support-annotations-22.1.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="01d051a6bfb1218b1db2d3a5af0480ac2c25c42a">
+        <dex dex="/home/pulce/AndroidStudioProjects/AirFlo/app/build/intermediates/pre-dexed/debug/support-annotations-22.1.1-3db40daba9a13395d23f28066375f4b1f92cd66b.jar" />
+    </item>
+    <item
+        jar="/home/pulce/AndroidStudioProjects/AirFlo/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appstate/7.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="0180d031a7b54dabb93b4af3869468b55dc938bd">
+        <dex dex="/home/pulce/AndroidStudioProjects/AirFlo/app/build/intermediates/pre-dexed/debug/classes-bfdbe9aa46750e7df4dbd203f110ee604c29607d.jar" />
+    </item>
+    <item
+        jar="/home/pulce/AndroidStudioProjects/AirFlo/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-fitness/7.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="4f4fe3c23776540625f3c2844152a7510fddf9f1">
+        <dex dex="/home/pulce/AndroidStudioProjects/AirFlo/app/build/intermediates/pre-dexed/debug/classes-f018d14497c60318237dcd326bc1b083cf828a58.jar" />
+    </item>
+    <item
+        jar="/home/pulce/InSync/AirFlo/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/7.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="59652857a825fff0de62166fca1bc9553cc01abb">
+        <dex dex="/home/pulce/InSync/AirFlo/app/build/intermediates/pre-dexed/debug/classes-e09c692d03ef53315d2902cddadc1941bc995645.jar" />
+    </item>
+    <item
+        jar="/home/pulce/AndroidStudioProjects/AirFlo/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/7.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="3988694bf9d8186ff97ad5cdfa4ed88b5010fe08">
+        <dex dex="/home/pulce/AndroidStudioProjects/AirFlo/app/build/intermediates/pre-dexed/debug/classes-e4909e2410d2112e11b0a96ed358d1ca7d253719.jar" />
+    </item>
+    <item
+        jar="/home/pulce/InSync/AirFlo/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-panorama/7.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="565a01f90f1529f73362707c4c185d0623a68782">
+        <dex dex="/home/pulce/InSync/AirFlo/app/build/intermediates/pre-dexed/debug/classes-7f17ed9aed90fdf8b3dac2145f83e5244f22b75d.jar" />
+    </item>
+    <item
+        jar="/home/pulce/InSync/AirFlo/app/build/intermediates/exploded-aar/com.android.support/support-v4-preferencefragment/1.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="f1678f81f938d991e46e194eacf1f224ffbf970f">
+        <dex dex="/home/pulce/InSync/AirFlo/app/build/intermediates/pre-dexed/debug/classes-ecaf14a4a4d64b3ad2f6128d5306f34994438f24.jar" />
+    </item>
+    <item
+        jar="/home/pulce/InSync/AirFlo/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/7.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="e5b9f5b0aa8dee788beb63d23832cb29ce771343">
+        <dex dex="/home/pulce/InSync/AirFlo/app/build/intermediates/pre-dexed/debug/classes-f43e4f6efd1fad0a8f6e0332e2df3e747d18455e.jar" />
+    </item>
+    <item
+        jar="/home/pulce/InSync/AirFlo/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/7.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="e35fae1b377c23aa5fd2d309a190c2d0f73d54ec">
+        <dex dex="/home/pulce/InSync/AirFlo/app/build/intermediates/pre-dexed/debug/classes-48f13bc819d33e29b161ec91ae0735eee8a54b04.jar" />
+    </item>
+    <item
+        jar="/home/pulce/AndroidStudioProjects/AirFlo/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/7.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="f2f7ec211ce4d244ee97a57523eeb4526dc3cf8a">
+        <dex dex="/home/pulce/AndroidStudioProjects/AirFlo/app/build/intermediates/pre-dexed/debug/classes-fd8d8da6bf191a00e52ec4f6b2bfc9c515a28e63.jar" />
+    </item>
+    <item
+        jar="/home/pulce/AndroidStudioProjects/AirFlo/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/7.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="e5bf453b070c1e39297986144960e45afa0fdfad">
+        <dex dex="/home/pulce/AndroidStudioProjects/AirFlo/app/build/intermediates/pre-dexed/debug/classes-2ab5641dd2bcc483c9b1444b2fb38b718ce8f604.jar" />
+    </item>
+    <item
+        jar="/home/pulce/InSync/AirFlo/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/7.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="9c9dea9e85aceb09d95df5e6f7bc8a43fc286068">
+        <dex dex="/home/pulce/InSync/AirFlo/app/build/intermediates/pre-dexed/debug/classes-5a46827e5d66448816bac83cf24b0c1358ac1b9b.jar" />
+    </item>
+    <item
+        jar="/home/pulce/AndroidStudioProjects/AirFlo/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/7.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="fe3e0c6de7cceed888b277487238b6af9a1cc299">
+        <dex dex="/home/pulce/AndroidStudioProjects/AirFlo/app/build/intermediates/pre-dexed/debug/classes-e89452409153d8c5ca8831fab285dedc11259731.jar" />
+    </item>
+    <item
+        jar="/home/pulce/AndroidStudioProjects/AirFlo/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-games/7.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="3b4ff5c39dace8f3b4ab4cab8191785547a0815f">
+        <dex dex="/home/pulce/AndroidStudioProjects/AirFlo/app/build/intermediates/pre-dexed/debug/classes-49a1af62ce264124e199fa7babf1892babba5a14.jar" />
+    </item>
+    <item
+        jar="/home/pulce/AndroidStudioProjects/AirFlo/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/7.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="59652857a825fff0de62166fca1bc9553cc01abb">
+        <dex dex="/home/pulce/AndroidStudioProjects/AirFlo/app/build/intermediates/pre-dexed/debug/classes-6834d3d82c52ab76745d259a7c75f38806249616.jar" />
+    </item>
+    <item
+        jar="/home/pulce/AndroidStudioProjects/AirFlo/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="c95ba8152923e4872e86a82cfcba9a51c0214328">
+        <dex dex="/home/pulce/AndroidStudioProjects/AirFlo/app/build/intermediates/pre-dexed/debug/classes-b39eb901133423b078655e59f05c16f498b35d79.jar" />
+    </item>
+    <item
+        jar="/home/pulce/AndroidStudioProjects/AirFlo/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a3ff3c506644c820eb2bdf06e8339f72be578551">
+        <dex dex="/home/pulce/AndroidStudioProjects/AirFlo/app/build/intermediates/pre-dexed/debug/classes-6f4196274d8b02e3ce3a5440efe2f210ca531e00.jar" />
+    </item>
+    <item
+        jar="/home/pulce/InSync/AirFlo/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appstate/7.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="0180d031a7b54dabb93b4af3869468b55dc938bd">
+        <dex dex="/home/pulce/InSync/AirFlo/app/build/intermediates/pre-dexed/debug/classes-44488d2756b464624f1e81b47fad88998a2278af.jar" />
+    </item>
+    <item
+        jar="/home/pulce/AndroidStudioProjects/AirFlo/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appinvite/7.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="bb36004beb02b69562cbec9aa7d6a3cf16bf5d1b">
+        <dex dex="/home/pulce/AndroidStudioProjects/AirFlo/app/build/intermediates/pre-dexed/debug/classes-6ac6894ab5b335323baa7344566ab66a49961de2.jar" />
+    </item>
+    <item
+        jar="/home/pulce/InSync/AirFlo/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/7.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="fe3e0c6de7cceed888b277487238b6af9a1cc299">
+        <dex dex="/home/pulce/InSync/AirFlo/app/build/intermediates/pre-dexed/debug/classes-917dd97063edb5c3b8f30eeea69c9954094cc33f.jar" />
+    </item>
+    <item
+        jar="/home/pulce/InSync/AirFlo/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a3ff3c506644c820eb2bdf06e8339f72be578551">
+        <dex dex="/home/pulce/InSync/AirFlo/app/build/intermediates/pre-dexed/debug/classes-4f646f77ed7de90242f4b269ec8b7bd6f9df7832.jar" />
+    </item>
+    <item
+        jar="/home/pulce/InSync/AirFlo/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-games/7.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="3b4ff5c39dace8f3b4ab4cab8191785547a0815f">
+        <dex dex="/home/pulce/InSync/AirFlo/app/build/intermediates/pre-dexed/debug/classes-291d9ba69456aafc6143ae499a5a6757ce26d1ad.jar" />
+    </item>
+    <item
+        jar="/home/pulce/AndroidStudioProjects/AirFlo/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-nearby/7.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="5ea948d825957be6c4358c48422bee60eef2d487">
+        <dex dex="/home/pulce/AndroidStudioProjects/AirFlo/app/build/intermediates/pre-dexed/debug/classes-3bbde3f84df7335e6839e8aa838cd428e948bc65.jar" />
+    </item>
+    <item
+        jar="/home/pulce/InSync/AirFlo/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/7.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="f2f7ec211ce4d244ee97a57523eeb4526dc3cf8a">
+        <dex dex="/home/pulce/InSync/AirFlo/app/build/intermediates/pre-dexed/debug/classes-fac12d736024dcb6ceff1a35caf96428641e7955.jar" />
+    </item>
+    <item
+        jar="/home/pulce/AndroidStudioProjects/AirFlo/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/7.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="b2c07cdb814fe988ad05f7b4d767a841514a5991">
+        <dex dex="/home/pulce/AndroidStudioProjects/AirFlo/app/build/intermediates/pre-dexed/debug/classes-343cb8a4399d38711189edf9c380572d2a84f62f.jar" />
+    </item>
+    <item
+        jar="/home/pulce/AndroidStudioProjects/AirFlo/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-safetynet/7.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="0708ef60917bf94913fe9ef972a655b99462dca7">
+        <dex dex="/home/pulce/AndroidStudioProjects/AirFlo/app/build/intermediates/pre-dexed/debug/classes-620fa38b8b564a01d7e14e5f3446ece444a6f4c5.jar" />
+    </item>
+    <item
+        jar="/home/pulce/InSync/AirFlo/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-drive/7.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a0ce76dfaccbfbd6c551ed2174280aaabe60fe47">
+        <dex dex="/home/pulce/InSync/AirFlo/app/build/intermediates/pre-dexed/debug/classes-0a2050ab49ebc5078e41280d27a8a7a841405408.jar" />
+    </item>
+    <item
+        jar="/home/pulce/InSync/AirFlo/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="c95ba8152923e4872e86a82cfcba9a51c0214328">
+        <dex dex="/home/pulce/InSync/AirFlo/app/build/intermediates/pre-dexed/debug/classes-26d5aaf57ef6b3b149cde56eb87ed5bfde92cf42.jar" />
+    </item>
+    <item
+        jar="/home/pulce/InSync/AirFlo/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/7.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="e5bf453b070c1e39297986144960e45afa0fdfad">
+        <dex dex="/home/pulce/InSync/AirFlo/app/build/intermediates/pre-dexed/debug/classes-a7dd09e79958421ebd37956dfc24b8e0ad9ce152.jar" />
+    </item>
+    <item
+        jar="/home/pulce/AndroidStudioProjects/AirFlo/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-identity/7.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="b48d5c51a9a9e329005106b4667f54948de4d4d8">
+        <dex dex="/home/pulce/AndroidStudioProjects/AirFlo/app/build/intermediates/pre-dexed/debug/classes-ad7b4f2d89531e30d6a057684d08946952b5e0aa.jar" />
+    </item>
+    <item
+        jar="/home/pulce/InSync/AirFlo/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-identity/7.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="b48d5c51a9a9e329005106b4667f54948de4d4d8">
+        <dex dex="/home/pulce/InSync/AirFlo/app/build/intermediates/pre-dexed/debug/classes-bf2ddbd9b1ea706bb0c1d245b08518a2e31c581d.jar" />
+    </item>
+    <item
+        jar="/home/pulce/InSync/AirFlo/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/7.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="7215ac1f2fca947b9415a6ee2a1bf991364aab24">
+        <dex dex="/home/pulce/InSync/AirFlo/app/build/intermediates/pre-dexed/debug/classes-2440898343cfc851c98f6c860e1732a5fb70db97.jar" />
+    </item>
+    <item
+        jar="/home/pulce/AndroidStudioProjects/AirFlo/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/7.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="7215ac1f2fca947b9415a6ee2a1bf991364aab24">
+        <dex dex="/home/pulce/AndroidStudioProjects/AirFlo/app/build/intermediates/pre-dexed/debug/classes-b212be0448784be8053df22c09dd023ae1fd6fcb.jar" />
+    </item>
+    <item
+        jar="/home/pulce/InSync/AirFlo/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-nearby/7.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="5ea948d825957be6c4358c48422bee60eef2d487">
+        <dex dex="/home/pulce/InSync/AirFlo/app/build/intermediates/pre-dexed/debug/classes-1dfb3655c7d6b4c92ef7b1b8c5fd9870202e84bb.jar" />
+    </item>
+    <item
+        jar="/home/pulce/AndroidStudioProjects/AirFlo/app/build/intermediates/exploded-aar/com.android.support/support-v4-preferencefragment/1.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="f1678f81f938d991e46e194eacf1f224ffbf970f">
+        <dex dex="/home/pulce/AndroidStudioProjects/AirFlo/app/build/intermediates/pre-dexed/debug/classes-45568e8a4bb62829db2873e26e1c7422da5d6712.jar" />
+    </item>
+    <item
+        jar="/home/pulce/AndroidStudioProjects/AirFlo/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/jars/libs/internal_impl-22.1.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="9e070ad32b2700b0343e8e0cccc437733d91ba3a">
+        <dex dex="/home/pulce/AndroidStudioProjects/AirFlo/app/build/intermediates/pre-dexed/debug/internal_impl-22.1.1-0cd5559d54f3b93590b791e8592ac49623fb1699.jar" />
+    </item>
+    <item
+        jar="/home/pulce/InSync/AirFlo/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-safetynet/7.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="0708ef60917bf94913fe9ef972a655b99462dca7">
+        <dex dex="/home/pulce/InSync/AirFlo/app/build/intermediates/pre-dexed/debug/classes-03f1ae1c27418a4c5b16731345000cef7269d59b.jar" />
+    </item>
+    <item
+        jar="/home/pulce/AndroidStudioProjects/AirFlo/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/7.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="6046e5cdaf799120b7c56a5a061d80e8854c4d34">
+        <dex dex="/home/pulce/AndroidStudioProjects/AirFlo/app/build/intermediates/pre-dexed/debug/classes-c232e647490a55fef77147cc205a50002135a3d7.jar" />
+    </item>
+    <item
+        jar="/home/pulce/AndroidStudioProjects/AirFlo/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/7.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="9c9dea9e85aceb09d95df5e6f7bc8a43fc286068">
+        <dex dex="/home/pulce/AndroidStudioProjects/AirFlo/app/build/intermediates/pre-dexed/debug/classes-4ee061e028768f4609e866989f5b58de5668478b.jar" />
+    </item>
+    <item
+        jar="/home/pulce/AndroidStudioProjects/AirFlo/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-drive/7.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a0ce76dfaccbfbd6c551ed2174280aaabe60fe47">
+        <dex dex="/home/pulce/AndroidStudioProjects/AirFlo/app/build/intermediates/pre-dexed/debug/classes-130dcd3449fc4bf177340eb557499465205e0279.jar" />
+    </item>
+    <item
+        jar="/home/pulce/AndroidStudioProjects/AirFlo/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/7.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="e35fae1b377c23aa5fd2d309a190c2d0f73d54ec">
+        <dex dex="/home/pulce/AndroidStudioProjects/AirFlo/app/build/intermediates/pre-dexed/debug/classes-13a25db5e4cd88f169ca8eb3f8f8b2ad1a121ad2.jar" />
+    </item>
+    <item
+        jar="/home/pulce/InSync/AirFlo/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appinvite/7.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="bb36004beb02b69562cbec9aa7d6a3cf16bf5d1b">
+        <dex dex="/home/pulce/InSync/AirFlo/app/build/intermediates/pre-dexed/debug/classes-8709c568f52a7723ff6fad1397b0cd1c4128b6af.jar" />
+    </item>
+    <item
+        jar="/home/pulce/InSync/AirFlo/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/7.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="3988694bf9d8186ff97ad5cdfa4ed88b5010fe08">
+        <dex dex="/home/pulce/InSync/AirFlo/app/build/intermediates/pre-dexed/debug/classes-b3e4cbaf2602a4df67053671511d80490a39bc83.jar" />
+    </item>
+    <item
+        jar="/home/pulce/AndroidStudioProjects/AirFlo/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/7.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="e5b9f5b0aa8dee788beb63d23832cb29ce771343">
+        <dex dex="/home/pulce/AndroidStudioProjects/AirFlo/app/build/intermediates/pre-dexed/debug/classes-125c549bd4ddd856775216d4bb8e2f57775779c3.jar" />
+    </item>
+    <item
+        jar="/home/pulce/InSync/AirFlo/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/7.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="b2c07cdb814fe988ad05f7b4d767a841514a5991">
+        <dex dex="/home/pulce/InSync/AirFlo/app/build/intermediates/pre-dexed/debug/classes-f8c99d51e7288bddb135644d5f641e5d6fc78aca.jar" />
+    </item>
+    <item
+        jar="/home/pulce/InSync/AirFlo/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/jars/libs/internal_impl-22.1.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="9e070ad32b2700b0343e8e0cccc437733d91ba3a">
+        <dex dex="/home/pulce/InSync/AirFlo/app/build/intermediates/pre-dexed/debug/internal_impl-22.1.1-8dbb7d87eb22abb29ea63de0b0830fea15c63664.jar" />
+    </item>
+    <item
+        jar="/home/pulce/InSync/AirFlo/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-fitness/7.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="4f4fe3c23776540625f3c2844152a7510fddf9f1">
+        <dex dex="/home/pulce/InSync/AirFlo/app/build/intermediates/pre-dexed/debug/classes-c4e302c172ade362937091a1a3ab9e9bc42dbea2.jar" />
+    </item>
+    <item
+        jar="/home/pulce/InSync/AirFlo/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/7.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="6046e5cdaf799120b7c56a5a061d80e8854c4d34">
+        <dex dex="/home/pulce/InSync/AirFlo/app/build/intermediates/pre-dexed/debug/classes-8f59c7f2a00bf2c046baf70eafd0bbd24f509fe2.jar" />
+    </item>
+
+</items>

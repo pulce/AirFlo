@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ressources>
+    <key name="number" unit="" isPref="true" compType = "int">Flight Number</key>
+	<key name="pilot" unit="" isPref="true" compType = "">Pilot</key>
+    <key name="date" unit="" isPref="true" compType = "date">Flight Date</key>
+	<key name="country" unit="" isPref="true" compType = "">Country</key>
+	<key name="site" unit="" isPref="true" compType = "string">Flying Site</key>
+	<key name="site2" unit="" isPref="true" compType = "">Starting Site</key>
+	<key name="landingsite" unit="" isPref="true" compType = "">Landing Site</key>
+    <key name="UTCorr" unit="" isPref="true" compType = "time">UTC Correction</key>
+	<key name="starttime" unit="" isPref="true" compType = "time">Starting Time</key>
+    <key name="duration" unit="" isPref="true" compType = "time">Duration</key>
+    <key name="landingtime" unit="" isPref="true" compType = "">Landing Time</key>
+    <key name="startheight" unit="m" isPref="true" compType = "">Starting Height</key>
+    <key name="maxheight" unit="m" isPref="true" compType = "int">Maximum Height</key>
+	<key name="landheight" unit="m" isPref="true" compType = "">Landing Height</key>	
+	<key name="heightgain" unit="m" isPref="true" compType = "">Height Gained</key>
+	<key name="starttype" unit="" isPref="true" compType = "int">Starting Type</key>	        
+	<key name="avgspeed" unit="km/h" isPref="false" compType = "">Average Speed</key>
+	<key name="maxvario" unit="m/s" isPref="true" compType = "int">Maximum Climb</key>
+	<key name="minvario" unit="m/s" isPref="false" compType = "">Maximum Sink</key>
+	<key name="glidertyp" unit="" isPref="true" compType = "">Glider Type</key>
+	<key name="gliderID" unit="" isPref="false" compType = "">Glider ID</key>
+	<key name="GPSID" unit="" isPref="false" compType = "">GPS ID</key>
+	<key name="compID" unit="" isPref="false" compType = "">Competition ID</key>
+	<key name="compClass" unit="" isPref="false" compType = "">Competition ID</key>			
+	<key name="comment" unit="" isPref="false" compType = "">Comment</key>	
+	<key name="olc" unit="" isPref="false" compType = "">OLC</key>
+	<key name="tag" unit="" isPref="false" compType = "">Tag</key>		
+</ressources>

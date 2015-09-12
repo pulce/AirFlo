@@ -1,0 +1,85 @@
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".FlightListActivity">
+
+
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/flight_list"
+        android:name="com.airflo.FlightListFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        tools:context=".FlightListActivity"
+        tools:layout="@android:layout/list_content" >
+    </fragment>
+
+
+    <!-- The navigation drawer -->
+
+    <RelativeLayout
+        android:layout_width="280dp"
+        android:layout_height="match_parent"
+        android:id="@+id/drawerPane"
+        android:layout_gravity="start">
+<!--
+        <TextView
+            android:id="@+id/drawer_title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+-->
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="11dp"
+        android:paddingBottom="11dp"
+        android:id="@+id/drawer_title_view"
+        android:background="#ffffffff">
+
+        <ImageView
+            android:id="@+id/drawer_icon"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/launcher_airflo"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="10dp"
+            />
+
+        <TextView
+            android:id="@+id/drawer_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_toRightOf="@+id/drawer_icon"
+            android:layout_toEndOf="@+id/drawer_icon"
+            android:layout_centerVertical="true"/>
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/drawer_sep"
+            android:layout_width="fill_parent"
+            android:layout_height="2dip"
+            android:background="#000000"
+            android:layout_below="@id/drawer_title_view"/>
+
+        <!-- List of Actions (pages) -->
+        <ListView
+            android:layout_below="@id/drawer_sep"
+            android:id="@+id/navList"
+            android:layout_width="280dp"
+            android:layout_height="match_parent"
+            android:choiceMode="singleChoice"
+            android:background="#ffffffff" />
+
+    </RelativeLayout>
+
+</android.support.v4.widget.DrawerLayout>
+

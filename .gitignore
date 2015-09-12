@@ -1,0 +1,22 @@
+.classpath
+.settings
+launcher*
+bin/
+gen/
+libs/
+drawable*/
+mipmap*/
+lint.xml
+google_maps_api.xml
+
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/*/build/
+
+#built application files
+*.apk
+*.ap_
+*.class
