@@ -2,7 +2,6 @@ package com.airflo;
 
 import java.util.List;
 
-import com.airflo.R;
 import com.airflo.datamodel.FlightData;
 
 import android.content.Context;
@@ -56,7 +55,7 @@ public class FlightListAdapter extends ArrayAdapter<FlightListAdapterOption> {
 	
 	public void select(String id) {
 		for (int i = 0; i < objects.size(); i++) {
-			objects.get(i).makeSelected(id == FlightData.ITEMS.get(i).content.get("number") ? true : false);
+			objects.get(i).makeSelected(id.equals(FlightData.ITEMS.get(i).content.get("number")));
 		}
 	}
 

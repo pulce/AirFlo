@@ -13,11 +13,11 @@ import com.airflo.R;
 import java.util.ArrayList;
 
 /**
- * This Class is part of WindNow.
+ * This Class is part of AirFlo.
  * <p/>
  * It contributes an adapter for the Navigationdrawer.
  * <p/>
- * @author Florian Hauser Copyright (C) 2014
+ * @author Florian Hauser Copyright (C) 2015
  *         <p/>
  *         This program is free software: you can redistribute it and/or modify
  *         it under the terms of the GNU General Public License as published by

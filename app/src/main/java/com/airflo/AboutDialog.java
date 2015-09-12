@@ -1,7 +1,5 @@
 package com.airflo;
 
-import com.airflo.R;
-
 import android.app.Dialog;
 import android.content.Context;
 import android.view.View;

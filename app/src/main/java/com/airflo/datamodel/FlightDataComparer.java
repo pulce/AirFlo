@@ -29,24 +29,17 @@ import com.airflo.datamodel.FlightData.FlightDataItem;
 @SuppressLint("SimpleDateFormat")
 public class FlightDataComparer {
 
-	private Comparator<FlightDataItem> compi;
-
 	public FlightDataComparer() {
 	}
 
-	public Comparator<FlightDataItem> getCompi() {
-		return compi;
-	}
-
 	public FlightDataComparer sortListBy(final String compKey) {
-
-		compi = new Comparator<FlightDataItem>() {
+		Comparator<FlightDataItem> compi = new Comparator<FlightDataItem>() {
 			public int compare(FlightDataItem o1, FlightDataItem o2) {
 				String t1 = o1.sortContent.get(compKey);
 				String t2 = o2.sortContent.get(compKey);
 				return (t1.compareTo(t2));
 			}
-			
+
 		};
 		Collections.sort(FlightData.ITEMS, compi);
 		return this;

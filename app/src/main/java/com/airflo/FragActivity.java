@@ -19,7 +19,7 @@ import android.view.MenuItem;
  * 
  * It provides an Activity to handle flight detail preferences.
  * 
- * @author Florian Hauser Copyright (C) 2013
+ * @author Florian Hauser Copyright (C) 2015
  * 
  *         This program is free software: you can redistribute it and/or modify
  *         it under the terms of the GNU General Public License as published by
@@ -36,7 +36,6 @@ import android.view.MenuItem;
  */
 public class FragActivity extends AppCompatActivity {
 
-	private int thisType;
 	private Fragment frag = null;
 
 	@SuppressLint("NewApi")
@@ -48,7 +47,7 @@ public class FragActivity extends AppCompatActivity {
 			getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 			getSupportActionBar().setHomeButtonEnabled(true);
 		}
-		thisType = getIntent().getIntExtra("FragType", 1);
+		int thisType = getIntent().getIntExtra("FragType", 1);
 		switch (thisType) {
 			case FlightListActivity.LIST_DETAIL:
 				setTitle(getString(R.string.title_flight_detail_prefs));

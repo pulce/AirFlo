@@ -1,5 +1,7 @@
 package com.airflo;
 
+import android.support.annotation.NonNull;
+
 import java.util.Locale;
 
 /**
@@ -52,7 +54,7 @@ public class FlightListAdapterOption implements
 	}
 
 	@Override
-	public int compareTo(FlightListAdapterOption o) {
+	public int compareTo(@NonNull FlightListAdapterOption o) {
 		if (this.header != null)
 			return this.header.toLowerCase(Locale.getDefault()).compareTo(
 					o.getHeader().toLowerCase(Locale.getDefault()));

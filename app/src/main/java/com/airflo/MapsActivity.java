@@ -1,23 +1,14 @@
 package com.airflo;
 
 import android.content.SharedPreferences;
-import android.content.res.AssetManager;
 import android.os.Environment;
 import android.preference.PreferenceManager;
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.ListView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 
-import com.airflo.datamodel.FlightData;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -25,7 +16,6 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.android.gms.maps.model.TileOverlay;
 import com.google.android.gms.maps.model.TileOverlayOptions;
@@ -33,16 +23,12 @@ import com.google.android.gms.maps.model.UrlTileProvider;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
@@ -50,7 +36,7 @@ public class MapsActivity extends AppCompatActivity {
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
     private ArrayList<LatLng> pois = new ArrayList<>();
-    private SimpleDateFormat ft = new SimpleDateFormat ("HHmmss");
+    //private SimpleDateFormat ft = new SimpleDateFormat ("HHmmss");
 
     private String[] tileServer;
     private String[] mapNames;
@@ -95,7 +81,6 @@ public class MapsActivity extends AppCompatActivity {
                 }
                 BufferedReader br = new BufferedReader(new InputStreamReader(zipFile.getInputStream(zipEntry)));
                 String line;
-                int cnt = 0;
                 while ((line = br.readLine()) != null) {
                     if (line.startsWith("B")) {// && (cnt++ % 10 == 0)) {
                         pois.add(parseIgcLine(line));
@@ -138,7 +123,7 @@ public class MapsActivity extends AppCompatActivity {
         updateOverlay(item.getOrder());
         SharedPreferences.Editor editor = sharedPrefs.edit();
         editor.putInt(TILEPREF, item.getOrder());
-        editor.commit();
+        editor.apply();
         return true;
     }
 
@@ -173,7 +158,7 @@ public class MapsActivity extends AppCompatActivity {
                     rectOptions.add(poi);
                     //mMap.addMarker(new MarkerOptions().position(new LatLng(poi.lon, poi.lat)).title("Marker"));
                 }
-                Polyline polyline = mMap.addPolyline(rectOptions);
+                mMap.addPolyline(rectOptions);
                 CameraPosition cameraPosition = new CameraPosition.Builder()
                         .target(pois.get(0))
                         .zoom(10)
@@ -190,7 +175,7 @@ public class MapsActivity extends AppCompatActivity {
     }
 
     private LatLng parseIgcLine(String line) throws ParseException {
-        Date dt = ft.parse(line.substring(1, 7));
+        //Date dt = ft.parse(line.substring(1, 7));
         double lat = lonToDec(line.substring(7, 14));
         double lon = lonToDec(line.substring(15, 23));
         //int pres = Integer.parseInt(line.substring(25, 30));

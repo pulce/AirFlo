@@ -51,13 +51,11 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Parcelable;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Gravity;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -71,7 +69,6 @@ public class FlightListActivity extends AppCompatActivity implements
 		FlightListFragment.Callbacks {
 
 	private SharedPreferences sharedPrefs;
-	private SharedPreferences.OnSharedPreferenceChangeListener sharedPrefsListner;
 
 	public static final String APPURL = "https://github.com/pulce/AirFlo/releases/latest";
 	public static final String VERSIONID = "0.8";
@@ -97,7 +94,7 @@ public class FlightListActivity extends AppCompatActivity implements
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_flight_list);
 		sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
-		sharedPrefsListner = new SharedPreferences.OnSharedPreferenceChangeListener() {
+		SharedPreferences.OnSharedPreferenceChangeListener sharedPrefsListner = new SharedPreferences.OnSharedPreferenceChangeListener() {
 			@Override
 			public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
 				if (key.equals("flightBookName")) {
@@ -173,14 +170,14 @@ public class FlightListActivity extends AppCompatActivity implements
 		Editor edit = sharedPrefs.edit();
 		if (sharedPrefs.getString(key, null) == null)
 			edit.putString(key, value);
-		edit.commit();
+		edit.apply();
 	}
 
 	/**
 	 * Method needed to restore scroll position
 	 */
 	@Override
-	protected void onRestoreInstanceState(Bundle state) {
+	protected void onRestoreInstanceState(@NonNull Bundle state) {
 		super.onRestoreInstanceState(state);
 		savedListState = state.getParcelable(LIST_STATE);
 	}

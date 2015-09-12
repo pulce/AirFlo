@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -22,7 +21,6 @@ import android.widget.Toast;
 import com.airflo.datamodel.FlightData;
 import com.airflo.datamodel.Identi;
 import com.airflo.helpers.OnlyContext;
-import com.airflo.R;
 
 /**
  * 
@@ -52,9 +50,6 @@ public class FlightDetailFragment extends Fragment {
 
 	public static final String ARG_ITEM_ID = "item_id";
 	private FlightData.FlightDataItem mItem;
-	private TextView header;
-	private TextView cell;
-	private SharedPreferences sharedPrefs;
 	private TableLayout table;
 	private View rootView;
 
@@ -120,7 +115,7 @@ public class FlightDetailFragment extends Fragment {
 	public void addViews() {
 		table.setColumnShrinkable(1, true);
 
-		sharedPrefs = PreferenceManager.getDefaultSharedPreferences(OnlyContext
+		SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(OnlyContext
 				.getContext());
 		float detSize = Float.valueOf(sharedPrefs.getString("detailtextsize",
 				"20"));
@@ -155,14 +150,14 @@ public class FlightDetailFragment extends Fragment {
 				} else {
 					TableRow row = new TableRow(getActivity());
 
-					header = new TextView(getActivity());
+					TextView header = new TextView(getActivity());
 					header.setSingleLine();
 					header.setTextSize(detSize);
 					header.setText(identi.getStringRep());
 					header.setPadding(6, 4, 10, 4);
 					row.addView(header);
 
-					cell = new TextView(getActivity());
+					TextView cell = new TextView(getActivity());
 					cell.setSingleLine(false);
 					cell.setTextSize(detSize);
 					cell.setText(mItem.getFromKey(identi.getKey()));

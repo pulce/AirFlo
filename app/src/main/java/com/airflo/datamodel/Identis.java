@@ -3,7 +3,6 @@ package com.airflo.datamodel;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import org.xmlpull.v1.XmlPullParser;
@@ -39,7 +38,6 @@ import android.util.Log;
 public class Identis {
 
 	private static Map<String, Identi> identiMap = new LinkedHashMap<>();
-	private ArrayList<String> keySet;
 
 	public Identis() {
 		// Load all keys from the Assets dir.
@@ -48,8 +46,6 @@ public class Identis {
 		InputStream input;
 		try {
 			input = assetManager.open("bookitems.xml");
-
-			keySet = new ArrayList<>();
 			XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
 			factory.setNamespaceAware(true);
 			XmlPullParser xpp = factory.newPullParser();
@@ -66,7 +62,6 @@ public class Identis {
 						String unit = xpp.getAttributeValue(1);
 						boolean listPref = xpp.getAttributeValue(2).equals("true");
 						String compType = xpp.getAttributeValue(3);
-						keySet.add(key);
 						identiMap.put(key, new Identi(key, OnlyContext.rString(key), unit, listPref, compType));
 					}
 				}
@@ -105,17 +100,6 @@ public class Identis {
 		for (int i = 0; i < resl.length; i++)
 			resl[i] = listPref.get(i);
 		return resl;
-	}
-
-	public ArrayList<String> getKeySet() {
-		return keySet;
-	}
-
-	public String getStringRep(String key) {
-		String rep = "";
-		if (identiMap.containsKey(key))
-			rep = identiMap.get(key).getStringRep();
-		return rep;
 	}
 
 	public boolean hasKey(String key) {

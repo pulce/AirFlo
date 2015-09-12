@@ -1,11 +1,11 @@
 package com.airflo.helpers;
 
 /**
- * This Class is part of WindNow.
+ * This Class is part of AirFlo.
  * <p/>
- * NavItems are used by DrawerListAdapter and MainActivity
+ * NavItems are used by DrawerListAdapter and FlightListActivity
  * <p/>
- * @author Florian Hauser Copyright (C) 2014
+ * @author Florian Hauser Copyright (C) 2015
  *         <p/>
  *         This program is free software: you can redistribute it and/or modify
  *         it under the terms of the GNU General Public License as published by

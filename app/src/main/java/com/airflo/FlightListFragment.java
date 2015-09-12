@@ -1,7 +1,6 @@
 package com.airflo;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -12,7 +11,6 @@ import android.widget.ListView;
 
 import com.airflo.datamodel.FlightData;
 import com.airflo.datamodel.FlightDataComparer;
-import com.airflo.R;
 
 /**
  * 
@@ -50,7 +48,7 @@ public class FlightListFragment extends ListFragment {
 	private static FlightDataComparer compi = new FlightDataComparer();
 
 	public interface Callbacks {
-		public void onItemSelected(String id);
+		void onItemSelected(String id);
 	}
 
 	/**
@@ -62,7 +60,6 @@ public class FlightListFragment extends ListFragment {
 		public void onItemSelected(String id) {
 		}
 	};
-	private List<FlightListAdapterOption> flights;
 
 	public FlightListFragment() {
 	}
@@ -78,7 +75,7 @@ public class FlightListFragment extends ListFragment {
 	 * responsible for sorting the list according to the preference of the user.
 	 */
 	public void refreshAdapter() {
-		flights = new ArrayList<FlightListAdapterOption>();
+		ArrayList<FlightListAdapterOption> flights = new ArrayList<>();
 		String sorter = PreferenceManager.getDefaultSharedPreferences(
 				getActivity()).getString("list_pref_sort", "number");
 		boolean ascend = PreferenceManager

@@ -168,19 +168,6 @@ public class FlightData {
 			}
 		}
 
-		@SuppressWarnings("deprecation")
-		private static String subTime(String base, String toAdd) {
-			DateFormat formatter = new SimpleDateFormat("HH:mm:ss");
-			try {
-				Date start = formatter.parse(base);
-				Date dur = formatter.parse(toAdd);
-				long moreMillis = (dur.getHours()*60+dur.getMinutes())*60*1000;
-				Date sum = new Date(start.getTime() - moreMillis);
-				return formatter.format(sum);
-			} catch (ParseException e) {
-				return "";
-			}
-		}
 
 		/**
 		 * Method to get the content of one item for the main list.
@@ -191,7 +178,6 @@ public class FlightData {
 			String item = "";
 			for (int i = 1; i <= 3; i++) {
 				String key = sharedPrefs.getString("listsub" + i, "empty");
-				assert key != null;
 				if (!key.equals("empty")) {
 					if (item.length() > 0)
 						item += "  -  ";
@@ -206,7 +192,6 @@ public class FlightData {
 			String item = "";
 			for (int i = 1; i <= 3; i++) {
 				String key = sharedPrefs.getString("listhead" + i, "empty");
-				assert key != null;
 				if (!key.equals("empty")) {
 					if (item.length() > 0)
 						item += "  -  ";
@@ -221,15 +206,6 @@ public class FlightData {
 			return content.get(key);
 		}
 
-		public ArrayList<String[]> getMap() {
-			ArrayList<String[]> table = new ArrayList<>();
-			for (String key : identis.getKeySet()) {
-				table.add(new String[] { identis.getStringRep(key),
-						content.get(key) });
-			}
-			return table;
-		}
-		
 		/**
 		 * This method transforms each string into another sortable string.
 		 * @param itemData
