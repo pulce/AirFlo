@@ -71,7 +71,7 @@ public class FlightListActivity extends AppCompatActivity implements
 	private SharedPreferences sharedPrefs;
 
 	public static final String APPURL = "https://github.com/pulce/AirFlo/releases/latest";
-	public static final String VERSIONID = "1.0";
+	public static final String VERSIONID = "1.0.0";
 	public static final int TYPE_PREF = 1;
 	public static final int FILE_CHOOSER = 2;
 	public static final int LIST_SET = 3;
