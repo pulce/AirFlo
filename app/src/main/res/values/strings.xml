@@ -72,7 +72,7 @@
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
     <string name="authors_note">        Contact: pulce@gmx.at \n
-        Copyright 2013 \n
+        Copyright 2015 \n
         by Florian Hauser</string>
     <string name="legal_notice">    Credits go out to Lars Seifert for 
     support and for supplying the original AirTome tag icons.
@@ -89,6 +89,8 @@
     
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see http://www.gnu.org/licenses/.</string>
+
+    <string name="mapquest_notice" translatable="false">Data, imagery and map information provided by <![CDATA[<a href="http://www.thunderforest.com/">Thunderforest</a>]]>, MapQuest, <![CDATA[<a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>]]> and contributors, <![CDATA[<a href="http://opendatacommons.org/licenses/odbl/">ODbL</a>]]></string>
     <string name="title_activity_maps">Map</string>
     <string name="menu_open_map">Open Map</string>
     <string name="no_igc_file">No igc file for this flight</string>
@@ -96,5 +98,7 @@
     <string name="check_for_updates_failed">Check for updates failed</string>
     <string name="already_latest_version">You are using the latest version</string>
     <string name="new_version_available">is available, you use</string>
+    <string name="about_airflo_version">"AirFlo Version "</string>
+    <string name="about_google_api_legal" translatable="false">Maps are also provided by Google Maps API. Legal notice:</string>
 
 </resources>

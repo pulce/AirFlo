@@ -71,21 +71,20 @@ public class DetailPreferenceAdapter extends ArrayAdapter<Identi> {
 		}
 		final Identi identi = items.get(position);
 		if (identi != null) {
-			CheckBox checkMe = (CheckBox) view.findViewById(R.id.DetailPrefCheck01);
+			CheckBox checkMe;
+			checkMe = (CheckBox) view.findViewById(R.id.DetailPrefCheck01);
 			final String prefKey = "detailListPref" + identi.getKey();
 			final SharedPreferences prefOfBox = PreferenceManager.getDefaultSharedPreferences(OnlyContext.getContext());
 			checkMe.setChecked(prefOfBox.getBoolean(prefKey, true));
-			if (checkMe != null) {
-				checkMe.setText(identi.getStringRep());
-				checkMe.setOnClickListener(new OnClickListener() {
-					@Override
-					public void onClick(View v) {
-						Editor edit = prefOfBox.edit();
-						edit.putBoolean(prefKey, ((CheckBox) v).isChecked());
-						edit.commit();
-					}
-				});
-			}
+			checkMe.setText(identi.getStringRep());
+			checkMe.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Editor edit = prefOfBox.edit();
+                    edit.putBoolean(prefKey, ((CheckBox) v).isChecked());
+                    edit.apply();
+                }
+            });
 
 		}
 		return view;

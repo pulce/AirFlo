@@ -66,12 +66,12 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class FlightListActivity extends AppCompatActivity implements
-		FlightListFragment.Callbacks {
+		FlightListFragment.Callbacks, SharedPreferences.OnSharedPreferenceChangeListener {
 
 	private SharedPreferences sharedPrefs;
 
 	public static final String APPURL = "https://github.com/pulce/AirFlo/releases/latest";
-	public static final String VERSIONID = "0.8";
+	public static final String VERSIONID = "1.0";
 	public static final int TYPE_PREF = 1;
 	public static final int FILE_CHOOSER = 2;
 	public static final int LIST_SET = 3;
@@ -93,18 +93,8 @@ public class FlightListActivity extends AppCompatActivity implements
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_flight_list);
+
 		sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
-		SharedPreferences.OnSharedPreferenceChangeListener sharedPrefsListner = new SharedPreferences.OnSharedPreferenceChangeListener() {
-			@Override
-			public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
-				if (key.equals("flightBookName")) {
-					FlightData.reset();
-					tryToLoadBook();
-				}
-				refreshView();
-			}
-		};
-		sharedPrefs.registerOnSharedPreferenceChangeListener(sharedPrefsListner);
 
 		makeNonExistingPref("listhead1", "number");
 		makeNonExistingPref("listhead2", "site");
@@ -161,7 +151,6 @@ public class FlightListActivity extends AppCompatActivity implements
 			tryToLoadBook();
 		}
 		setTitle(getString(R.string.app_name));
-		refreshView();
 
 
 	}
@@ -194,7 +183,17 @@ public class FlightListActivity extends AppCompatActivity implements
 					savedListState);
 		}
 		savedListState = null;
+		sharedPrefs.registerOnSharedPreferenceChangeListener(this);
+		refreshView();
+
 	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+		sharedPrefs.unregisterOnSharedPreferenceChangeListener(this);
+	}
+
 
 	/**
 	 * Method needed to restore scroll position
@@ -352,5 +351,14 @@ public class FlightListActivity extends AppCompatActivity implements
 			//		+ path[path.length - 1]);
 			mDrawerTitle.setText(path[path.length - 1]);
 		}
+	}
+
+	@Override
+	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+		if (key.equals("flightBookName")) {
+			FlightData.reset();
+			tryToLoadBook();
+		}
+		refreshView();
 	}
 }

@@ -2,10 +2,15 @@ package com.airflo;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.airflo.helpers.OnlyContext;
+import com.google.android.gms.common.GoogleApiAvailability;
 
 /**
  * 
@@ -37,7 +42,14 @@ public class AboutDialog {
 		dialog.setTitle(dialog.getContext().getString(R.string.about));
 
 		TextView text = (TextView) dialog.findViewById(R.id.text);
-		text.setText("AirFlo Version " + versionID);
+		text.setText(context.getString(R.string.about_airflo_version) + versionID);
+
+		TextView mapquest = (TextView) dialog.findViewById(R.id.mapquest_text);
+		mapquest.setText(Html.fromHtml(OnlyContext.getContext().getString(R.string.mapquest_notice)));
+		mapquest.setMovementMethod(LinkMovementMethod.getInstance());
+
+		TextView goog = (TextView) dialog.findViewById(R.id.google_text);
+		goog.setText(context.getString(R.string.about_google_api_legal) + "\n" + GoogleApiAvailability.getInstance().getOpenSourceSoftwareLicenseInfo(OnlyContext.getContext()));
 
 		Button confirmButton = (Button) dialog.findViewById(R.id.confButton);
 		confirmButton.setOnClickListener(new OnClickListener() {

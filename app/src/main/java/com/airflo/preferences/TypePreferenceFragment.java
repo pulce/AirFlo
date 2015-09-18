@@ -1,16 +1,9 @@
 package com.airflo.preferences;
 
-import com.airflo.FlightListActivity;
 import com.airflo.R;
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.preference.PreferenceActivity;
-import android.support.v4.app.NavUtils;
 import android.support.v4.preference.PreferenceFragment;
-import android.view.MenuItem;
 
 /**
  * 

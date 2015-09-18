@@ -61,6 +61,8 @@ public class MapsActivity extends AppCompatActivity {
             getSupportActionBar().setHomeButtonEnabled(true);
         }
 
+        setTitle(getIntent().getStringExtra(FlightDetailFragment.FLIGHTTITLE));
+
         String fileName = sharedPrefs.getString("flightBookName",
                 Environment.getExternalStorageDirectory().getPath() + "flightbookexample.xml");
         File file = new File(fileName);

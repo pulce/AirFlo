@@ -6,7 +6,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
 
-import com.airflo.FlightListActivity;
 import com.airflo.FragActivity;
 import com.airflo.R;
 
@@ -15,7 +14,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.support.v4.app.ListFragment;
-import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
@@ -33,19 +31,9 @@ public class FilePreferenceFragment extends ListFragment {
 
 	private File currentDir;
 	private FilePreferenceAdapter adapter;
-	private Stack<File> dirStack = new Stack<File>();
-
-	public static final String FLIGHTBOOKPREF = "com.airflo.flightbookpref";
+	private Stack<File> dirStack = new Stack<>();
 
 	public FilePreferenceFragment() {
-	}
-
-	public boolean tryToMoveUp() {
-		if (dirStack.size() == 0)
-			return false;
-		currentDir = dirStack.pop();
-		fill(currentDir);
-		return true;
 	}
 
 	@Override
@@ -79,13 +67,9 @@ public class FilePreferenceFragment extends ListFragment {
 					.show();
 			return;
 		}
-		//Intent returnIntent = new Intent();
-		//returnIntent.putExtra("result", o.getPath());
-		//getActivity().setResult(FragActivity.RESULT_OK, returnIntent);
-		//getActivity().finish();
 		SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(getActivity()).edit();
 		edit.putString("flightBookName", o.getPath());
-		edit.commit();
+		edit.apply();
 		if (getActivity() instanceof FragActivity) {
 			getActivity().finish();
 		}
@@ -95,8 +79,8 @@ public class FilePreferenceFragment extends ListFragment {
 		File[] dirs = f.listFiles();
 		getActivity().setTitle(
 				getString(R.string.title_file_preferece_activity) + f.getName());
-		List<FilePreferenceAdapterOption> dir = new ArrayList<FilePreferenceAdapterOption>();
-		List<FilePreferenceAdapterOption> fls = new ArrayList<FilePreferenceAdapterOption>();
+		List<FilePreferenceAdapterOption> dir = new ArrayList<>();
+		List<FilePreferenceAdapterOption> fls = new ArrayList<>();
 		try {
 			for (File ff : dirs) {
 				if (ff.isDirectory()) {

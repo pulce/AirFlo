@@ -1,15 +1,14 @@
 package com.airflo.datamodel;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-import org.xmlpull.v1.XmlPullParserFactory;
+import com.airflo.R;
 import com.airflo.helpers.OnlyContext;
-import android.content.res.AssetManager;
+import android.content.res.XmlResourceParser;
 import android.util.Log;
 
 /**
@@ -40,16 +39,10 @@ public class Identis {
 	private static Map<String, Identi> identiMap = new LinkedHashMap<>();
 
 	public Identis() {
-		// Load all keys from the Assets dir.
+		// Load all keys from xml
 		identiMap.put("empty", new Identi("empty", OnlyContext.rString("list_pref_empty_field"), "", true, ""));
-		AssetManager assetManager = OnlyContext.getContext().getAssets();
-		InputStream input;
 		try {
-			input = assetManager.open("bookitems.xml");
-			XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
-			factory.setNamespaceAware(true);
-			XmlPullParser xpp = factory.newPullParser();
-			xpp.setInput(input, null);
+			XmlResourceParser xpp = OnlyContext.getContext().getResources().getXml(R.xml.bookitems);
 
 			while (xpp.getEventType() != XmlPullParser.END_DOCUMENT) {
 				if (xpp.getEventType() == XmlPullParser.END_TAG) {

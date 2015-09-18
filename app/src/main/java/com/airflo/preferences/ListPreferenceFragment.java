@@ -7,19 +7,15 @@ import com.airflo.helpers.OnlyContext;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
-import android.preference.PreferenceActivity;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.support.v4.app.NavUtils;
 import android.support.v4.preference.PreferenceFragment;
 import android.view.MenuItem;
-
-import java.util.ArrayList;
 
 /**
  * 
@@ -119,8 +115,8 @@ public class ListPreferenceFragment extends PreferenceFragment {
 	
 	/**
 	 * Method to get the Android resource string corresponding to a pref value.
-	 * @param sortkey
-	 * @return String
+	 * @param sortkey Key
+	 * @return String Corresponding String
 	 */
 	private static String sortKeyToString(String sortkey) {
 		if (!sortkey.contains(";"))
@@ -134,9 +130,9 @@ public class ListPreferenceFragment extends PreferenceFragment {
 
 	/**
 	 * Add three slider preferences to a category.
-	 * @param catTitle
-	 * @param key
-	 * @param no
+	 * @param catTitle Category title
+	 * @param key Key
+	 * @param no Length
 	 */
 	private void addManyListItems(int catTitle, String key, int no) {
 		PreferenceCategory cat = new PreferenceCategory(getActivity());
@@ -152,9 +148,9 @@ public class ListPreferenceFragment extends PreferenceFragment {
 
 	/**
 	 * Add one slider preference to the category.
-	 * @param cat
-	 * @param key
-	 * @param title
+	 * @param cat Category
+	 * @param key Key
+	 * @param title Title
 	 */
 	private void addOneListItem(PreferenceCategory cat, String key, String title) {
 		final ListPreference listPref = new ListPreference(getActivity());

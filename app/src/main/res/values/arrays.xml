@@ -9,7 +9,7 @@
         <item name="24">24</item>
     </string-array>
 
-    <string-array name="tileservers">
+    <string-array name="tileservers" translatable="false">
         <item>Google Maps</item>
         <item>Google Satellite</item>
         <item>Google Terrain</item>
@@ -20,7 +20,7 @@
         <item>http://a.tile.thunderforest.com/outdoors/{z}/{x}/{y}.png</item>
     </string-array>
 
-    <string-array name="mapnames">
+    <string-array name="mapnames" translatable="false">
         <item>Google Maps</item>
         <item>Google Satellite</item>
         <item>Google Terrain</item>
