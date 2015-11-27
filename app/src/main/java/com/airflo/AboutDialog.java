@@ -49,7 +49,7 @@ public class AboutDialog {
 		mapquest.setMovementMethod(LinkMovementMethod.getInstance());
 
 		TextView goog = (TextView) dialog.findViewById(R.id.google_text);
-		goog.setText(context.getString(R.string.about_google_api_legal) + "\n" + GoogleApiAvailability.getInstance().getOpenSourceSoftwareLicenseInfo(OnlyContext.getContext()));
+		goog.setText(context.getString(R.string.glide_cp) + "\n" + context.getString(R.string.about_google_api_legal) + "\n" + GoogleApiAvailability.getInstance().getOpenSourceSoftwareLicenseInfo(OnlyContext.getContext()));
 
 		Button confirmButton = (Button) dialog.findViewById(R.id.confButton);
 		confirmButton.setOnClickListener(new OnClickListener() {
