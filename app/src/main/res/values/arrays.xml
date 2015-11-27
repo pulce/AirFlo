@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string-array name="picSize"  translatable="false">
+        <item name="1280">1280</item>
+        <item name="1920">1920</item>
+        <item name="2880">2880</item>
+        <item name="3840">3840</item>
+        <item name="max">10000</item>
+    </string-array>
+
+    <string-array name="picCacheTitle">
+        <item name="Full">Everything</item>
+        <item name="Source">Source Resolution</item>
+        <item name="Display">Displayed Resolution</item>
+        <item name="None">Nothing at all</item>
+    </string-array>
+
+    <string-array name="picCache"  translatable="false">
+        <item name="Full">Full</item>
+        <item name="Source">Source</item>
+        <item name="Display">Display</item>
+        <item name="None">None</item>
+    </string-array>
+
+
     <string-array name="typeSize">
         <item name="8">8</item>
         <item name="12">12</item>

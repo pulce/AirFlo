@@ -13,6 +13,9 @@
         android:id="@+id/action_prefdetail"
         android:title="@string/main_menu_prefdetail"></item>
     <item
+        android:id="@+id/action_prefpic"
+        android:title="@string/main_menu_prefpic"></item>
+    <item
         android:id="@+id/action_about"
         android:title="@string/about"></item>
     <item

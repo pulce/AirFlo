@@ -45,7 +45,6 @@ public class FilePreferenceFragment extends ListFragment {
 
 	@Override
 	public void onListItemClick(ListView l, View v, int position, long id) {
-		// TODO Auto-generated method stub
 		super.onListItemClick(l, v, position, id);
 		FilePreferenceAdapterOption o = adapter.getItem(position);
 		if (o.getData().equalsIgnoreCase("folder")) {
@@ -69,7 +68,7 @@ public class FilePreferenceFragment extends ListFragment {
 		}
 		SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(getActivity()).edit();
 		edit.putString("flightBookName", o.getPath());
-		edit.apply();
+		edit.commit();
 		if (getActivity() instanceof FragActivity) {
 			getActivity().finish();
 		}

@@ -9,7 +9,7 @@ mipmap*/
 lint.xml
 google_maps_api.xml
 
-.gradle
+*.gradle
 /local.properties
 /.idea/workspace.xml
 /.idea/libraries

@@ -125,7 +125,7 @@ public class MapsActivity extends AppCompatActivity {
         updateOverlay(item.getOrder());
         SharedPreferences.Editor editor = sharedPrefs.edit();
         editor.putInt(TILEPREF, item.getOrder());
-        editor.apply();
+        editor.commit();
         return true;
     }
 

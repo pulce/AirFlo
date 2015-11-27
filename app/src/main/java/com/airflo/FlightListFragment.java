@@ -51,10 +51,6 @@ public class FlightListFragment extends ListFragment {
 		void onItemSelected(String id);
 	}
 
-	/**
-	 * A dummy implementation of the {@link Callbacks} interface that does
-	 * nothing. Used only when this fragment is not attached to an activity.
-	 */
 	private static Callbacks sDummyCallbacks = new Callbacks() {
 		@Override
 		public void onItemSelected(String id) {
@@ -90,7 +86,7 @@ public class FlightListFragment extends ListFragment {
 		}
 		for (FlightData.FlightDataItem item : FlightData.ITEMS) {
 			FlightListAdapterOption option = new FlightListAdapterOption(
-					item.getheadItem(), item.getListItem());
+					item.getheadItem(), item.getListItem(), item.getPictureHeaders().size() > 0, item.getIgcName() != null);
 			flights.add(option);
 		}
 
@@ -158,7 +154,7 @@ public class FlightListFragment extends ListFragment {
 			// Serialize and persist the activated item position.
 			outState.putInt(STATE_ACTIVATED_POSITION, mActivatedPosition);
 		}
-	}
+    }
 
 	/**
 	 * Turns on activate-on-click mode. When this mode is on, list items will be

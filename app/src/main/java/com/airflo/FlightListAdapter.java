@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
@@ -72,7 +73,20 @@ public class FlightListAdapter extends ArrayAdapter<FlightListAdapterOption> {
 		final FlightListAdapterOption o = objects.get(position);
 		
 		if (o != null) {
-
+			ImageView mapOrGallery = (ImageView) v.findViewById(R.id.MapOrGallery);
+            if (sharedPrefs.getBoolean("list_pref_indicator", true)) {
+                mapOrGallery.setVisibility(ImageView.VISIBLE);
+                if (o.isPic() && o.isMap())
+                    mapOrGallery.setImageResource(R.drawable.ic_photo_map_36dp);
+                else if (o.isPic())
+                    mapOrGallery.setImageResource(R.drawable.ic_photo_grey600_36dp);
+                else if (o.isMap())
+                    mapOrGallery.setImageResource(R.drawable.ic_map_grey600_36dp);
+                else
+                    mapOrGallery.setImageResource(android.R.color.transparent);
+            } else {
+                mapOrGallery.setVisibility(ImageView.GONE);
+            }
 			TextView header = (TextView) v.findViewById(R.id.ListHeader);
 			header.setTextSize(Float.valueOf(sharedPrefs.getString(
 					"list_head_size", "20")));

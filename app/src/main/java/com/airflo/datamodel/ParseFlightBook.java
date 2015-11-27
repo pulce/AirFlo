@@ -3,6 +3,7 @@ package com.airflo.datamodel;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Locale;
@@ -101,6 +102,9 @@ public class ParseFlightBook {
 
                         if (xpp.getEventType() == XmlPullParser.START_TAG) {
                             String key = xpp.getName();
+                            if (key.equals("pictureheader")) {
+                                item.setPictureHeaders(parsePictureHead(item, xpp));
+                            }
                             if (FlightData.identis.hasKey(key)) {
                                 if (key.equals("olc")) {
                                     item.putContent(key, getOLC(xpp));
@@ -159,7 +163,7 @@ public class ParseFlightBook {
                             FlightData.ITEM_MAP.get(flightNumString).setIgcName(entry.getName());
                         }
                     }
-                 }
+                }
 
             } catch (Exception e) {
                 Log.e("Exception", e.toString());
@@ -261,6 +265,47 @@ public class ParseFlightBook {
         } while (stillTag);
         return tag;
     }
+
+    private static ArrayList<String> parsePictureHead(FlightData.FlightDataItem item, XmlPullParser xpp)
+            throws XmlPullParserException, IOException {
+        ArrayList<String> heads = new ArrayList<>();
+        while (true) {
+            xpp.next();
+            if (xpp.getEventType() == XmlPullParser.END_TAG) {
+                if (xpp.getName().equals("pictureheader"))
+                    xpp.next();
+                return heads;
+            }
+            if (xpp.getEventType() == XmlPullParser.START_TAG)
+                if (xpp.getName().equals("JFlightPictureHeader")) {
+                    String picName = null;
+                    String externalFileName = null;
+                    while (true) {
+                        xpp.next();
+                        if (xpp.getEventType() == XmlPullParser.END_TAG) {
+                            if (xpp.getName().equals("JFlightPictureHeader")) {
+                                if (externalFileName == null)
+                                    heads.add("zipResource://flightbook/" + item.content.get("number") + "/" + picName);
+                                else if (externalFileName.toLowerCase().startsWith("http"))
+                                    heads.add(externalFileName);
+                                xpp.next();
+                                break;
+                            }
+                        }
+                        if (xpp.getEventType() == XmlPullParser.START_TAG && xpp.getName() != null) {
+                            if(xpp.getName().equals("picturename")) {
+                                xpp.next();
+                                if (xpp.getText() != null) picName = xpp.getText();
+                            } else if (xpp.getName().equals("externalfilename")) {
+                                xpp.next();
+                                if (xpp.getText() != null) externalFileName = xpp.getText();
+                            }
+                        }
+                    }
+                }
+        }
+    }
+
 
     /**
      * Handle entries that cover new and org. New will be preferred over org.

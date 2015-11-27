@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <ListPreference
+        android:entries="@array/picSize"
+        android:entryValues="@array/picSize"
+        android:key="list_pic_size"
+        android:summary="@string/picpref_picsize_hint"
+        android:title="@string/picpref_picsize_title" />
+    <ListPreference
+        android:entries="@array/picCacheTitle"
+        android:entryValues="@array/picCache"
+        android:key="list_pic_cache"
+        android:summary="@string/picpref_cache_hint"
+        android:title="@string/picpref_cache_title" />
+    <Preference android:title="@string/picClearCacheTitle"
+        android:key="@string/clearCacheIdentifierString"
+        android:summary="@string/picClearCacheSummary"/>
+</PreferenceScreen>

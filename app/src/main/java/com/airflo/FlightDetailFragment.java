@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -52,6 +53,7 @@ public class FlightDetailFragment extends Fragment {
     private View rootView;
 
     public static final String IGCNAME = "com.airflo.igcname";
+    public static final String PICURLS = "com.airflo.picurls";
     public static final String FLIGHTTITLE = "com.airflo.flighttitle";
 
     public FlightDetailFragment() {
@@ -63,6 +65,10 @@ public class FlightDetailFragment extends Fragment {
         if (getArguments().containsKey(ARG_ITEM_ID)) {
             mItem = FlightData.ITEM_MAP.get(getArguments().getString(
                     ARG_ITEM_ID));
+            Log.d("Deeeeetail","xxx");
+            for (String head : mItem.getPictureHeaders()) {
+                Log.d("Picname:", "t" + head);
+            }
             setHasOptionsMenu(true);
         }
     }
@@ -79,8 +85,14 @@ public class FlightDetailFragment extends Fragment {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        if (mItem.getIgcName() != null)
-            inflater.inflate(R.menu.flightdetailmenu, menu);
+        inflater.inflate(R.menu.flightdetailmenu, menu);
+        if (mItem.getIgcName() != null) {
+            menu.findItem(R.id.action_open_map).setVisible(true);
+        }
+        if (mItem.getPictureHeaders().size() > 0) {
+            menu.findItem(R.id.action_open_gallery).setVisible(true);
+        }
+
     }
 
     @Override
@@ -91,6 +103,10 @@ public class FlightDetailFragment extends Fragment {
                         MapsActivity.class).putExtra(IGCNAME, mItem.getIgcName()).putExtra(FLIGHTTITLE, mItem.getheadItem());
                 startActivity(fileChooser);
                 return true;
+            case R.id.action_open_gallery:
+                Intent intent = new Intent(getActivity().getApplicationContext(), ImageActivity.class)
+                        .putStringArrayListExtra(PICURLS, mItem.getPictureHeaders());
+                startActivity(intent);
             default:
                 return super.onOptionsItemSelected(item);
         }

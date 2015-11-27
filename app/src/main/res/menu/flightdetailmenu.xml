@@ -8,6 +8,15 @@
         android:orderInCategory="100"
         android:title="@string/menu_open_map"
         android:icon="@drawable/ic_map_white_36dp"
+        android:visible="false"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/action_open_gallery"
+        android:orderInCategory="101"
+        android:title="@string/menu_open_gallery"
+        android:icon="@drawable/ic_photo_library_white_36dp"
+        android:visible="false"
         app:showAsAction="always"/>
 
 </menu>

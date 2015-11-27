@@ -8,6 +8,7 @@ import com.airflo.helpers.OnlyContext;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
@@ -82,12 +83,12 @@ public class ListPreferenceFragment extends PreferenceFragment {
 		listPref.setTitle(R.string.list_pref_sort_criterium);
 		cat.addPreference(listPref);
 		listPref.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
-			public boolean onPreferenceChange(Preference preference,
-					Object newValue) {
-				listPref.setSummary(sortKeyToString((String) newValue));
-				return true;
-			}
-		});
+            public boolean onPreferenceChange(Preference preference,
+                                              Object newValue) {
+                listPref.setSummary(sortKeyToString((String) newValue));
+                return true;
+            }
+        });
 		final ListPreference orderPref = new ListPreference(getActivity());
 		orderPref.setKey("list_pref_order");
 		orderPref.setEntries(new String[]{OnlyContext.rString("list_pref_sort_ascending"), OnlyContext.rString("list_pref_sort_decending")});
@@ -97,18 +98,24 @@ public class ListPreferenceFragment extends PreferenceFragment {
 		orderPref.setTitle(R.string.list_pref_sort_sequence);
 		cat.addPreference(orderPref);
 		orderPref.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
-			public boolean onPreferenceChange(Preference preference,
-					Object newValue) {
-				orderPref.setSummary(OnlyContext.rString((String) newValue));
-				return true;
-			}
-		});
+            public boolean onPreferenceChange(Preference preference,
+                                              Object newValue) {
+                orderPref.setSummary(OnlyContext.rString((String) newValue));
+                return true;
+            }
+        });
 		
 		//Make item categories
 		addManyListItems(R.string.list_pref_cat1_title, "listhead", 3);
 		addManyListItems(R.string.list_pref_cat2_title, "listsub", 3);
-	
 
+		PreferenceCategory img = new PreferenceCategory(getActivity());
+		img.setTitle(R.string.list_pref_cat_indicator);
+        root.addPreference(img);
+        final CheckBoxPreference indicate = new CheckBoxPreference(getActivity());
+        indicate.setKey("list_pref_indicator");
+        indicate.setTitle(R.string.list_pref_show_indicator);
+        img.addPreference(indicate);
 		
 		this.setPreferenceScreen(root);
 	}

@@ -2,18 +2,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.airflo"
-    android:versionCode="8"
-    android:versionName="1.0" >
+    android:versionCode="9"
+    android:versionName="1.1" >
+
+    <uses-sdk tools:overrideLibrary="com.google.android.gms.all,com.google.android.gms.ads,com.google.android.gms,         com.google.android.gms.analytics,com.google.android.gms.appindexing,         com.google.android.gms.appinvite,com.google.android.gms.appstate,com.google.android.gms.cast,com.google.android.gms.drive,         com.google.android.gms.fitness,com.google.android.gms.location,com.google.android.gms.maps,com.google.android.gms.games,         com.google.android.gms.gcm,com.google.android.gms.identity,com.google.android.gms.nearby,com.google.android.gms.panorama,         com.google.android.gms.plus,com.google.android.gms.safetynet,com.google.android.gms.wallet,com.google.android.gms.wearable" />
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
-    <!--
- The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
-         Google Maps Android API v2, but are recommended.
-    -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
@@ -21,7 +19,8 @@
         android:allowBackup="true"
         android:icon="@drawable/launcher_airflo"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme"
+        android:largeHeap="true">
         <activity
             android:name=".FlightListActivity"
             android:label="@string/app_name" >
@@ -44,6 +43,16 @@
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" >
         </activity>
+        <activity
+            android:name=".ImageActivity"
+            android:label="@string/title_activity_image"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
+        </activity>
+
+        <meta-data
+            android:name="com.airflo.helpers.GlideCustomModuleLoader"
+            android:value="GlideModule" />
+
     </application>
 
 </manifest>

@@ -75,6 +75,7 @@ public class FlightData {
 		private DateFormat dateParser = new SimpleDateFormat("dd.MM.yyyy");
 		private DateFormat dateFormatter = new SimpleDateFormat("yyyyMMdd");
 		private String igcName = null;
+		private ArrayList<String> pictureHeaders = null;
 
 		public FlightDataItem() {
 		}
@@ -246,5 +247,12 @@ public class FlightData {
 			this.igcName = igcName;
 		}
 
+		public ArrayList<String> getPictureHeaders() {
+			return pictureHeaders;
+		}
+
+		public void setPictureHeaders(ArrayList<String> pictureHeaders) {
+			this.pictureHeaders = pictureHeaders;
+		}
 	}
 }

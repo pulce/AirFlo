@@ -30,11 +30,16 @@ public class FlightListAdapterOption implements
 		Comparable<FlightListAdapterOption> {
 	private String header;
 	private String data;
+	private boolean pic;
+    private boolean map;
 	private boolean selected;
 
-	public FlightListAdapterOption(String header, String data) {
+	public FlightListAdapterOption(String header, String data, boolean pic, boolean map) {
 		this.header = header;
 		this.data = data;
+        this.pic = pic;
+        this.map = map;
+
 	}
 
 	public String getData() {
@@ -44,8 +49,14 @@ public class FlightListAdapterOption implements
 	public String getHeader() {
 		return header;
 	}
-	
-	public void makeSelected(boolean sel) {
+
+    public boolean isPic() {return pic; }
+
+    public boolean isMap() {
+        return map;
+    }
+
+    public void makeSelected(boolean sel) {
 		this.selected = sel;
 	}
 	

@@ -3,6 +3,7 @@ package com.airflo;
 import com.airflo.preferences.DetailPreferenceFragment;
 import com.airflo.preferences.FilePreferenceFragment;
 import com.airflo.preferences.ListPreferenceFragment;
+import com.airflo.preferences.PicPreferenceFragment;
 import com.airflo.preferences.TypePreferenceFragment;
 
 import android.annotation.SuppressLint;
@@ -10,6 +11,7 @@ import android.support.v4.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
+import android.support.v4.preference.PreferenceFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
@@ -64,6 +66,10 @@ public class FragActivity extends AppCompatActivity {
 			case FlightListActivity.TYPE_PREF:
 				setTitle(getString(R.string.title_type_preference_activity));
 				frag = new TypePreferenceFragment();
+				break;
+			case FlightListActivity.PIC_PREF:
+				setTitle(getString(R.string.title_pic_pref));
+				frag = new PicPreferenceFragment();
 				break;
 			case FlightListActivity.FLIGHT_DETAIL:
 				setTitle(getString(R.string.title_flight_detail_activity));

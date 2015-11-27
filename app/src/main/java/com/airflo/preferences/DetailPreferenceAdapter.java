@@ -82,7 +82,7 @@ public class DetailPreferenceAdapter extends ArrayAdapter<Identi> {
                 public void onClick(View v) {
                     Editor edit = prefOfBox.edit();
                     edit.putBoolean(prefKey, ((CheckBox) v).isChecked());
-                    edit.apply();
+                    edit.commit();
                 }
             });
 
