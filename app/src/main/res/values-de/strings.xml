@@ -98,7 +98,7 @@
     <string name="new_version_available">ist verfügbar, Sie verwenden</string>
     <string name="about_airflo_version">"AirFlo Version "</string>
     <string name="action_settings">Einstellungen</string>
-    <string name="menu_open_gallery">Öffne Gallerie</string>
+    <string name="menu_open_gallery">Öffne Galerie</string>
     <string name="hello_world">Hallo Welt</string>
     <string name="list_pref_cat_indicator">Photo und Track Indikator</string>
     <string name="list_pref_show_indicator">Zeige Indikator</string>
@@ -106,8 +106,8 @@
     <string name="picpref_picsize_hint">Maximal mögliche Auflösung bei Zoom</string>
     <string name="picpref_cache_title">Zwischenspeicherstrategie</string>
     <string name="picpref_cache_hint">Nur relevant für online Bilder</string>
-    <string name="main_menu_prefpic">Einstellungen Gallerie</string>
-    <string name="title_pic_pref">Einstellungen Foto Gallerie</string>
+    <string name="main_menu_prefpic">Einstellungen Galerie</string>
+    <string name="title_pic_pref">Einstellungen Foto Galerie</string>
     <string name="picClearCacheTitle">Zwischenspeicher löschen</string>
     <string name="picClearCacheSummary">Lösche Flash und Ram Zwischenspeicher</string>
     <string name="toastCacheCleared">Zwischenspeicher gelöscht</string>
