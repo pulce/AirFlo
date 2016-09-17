@@ -4,6 +4,7 @@
     <string name="app_name">AirFlo</string>
     <string name="about">Über diese App</string>
     <string name="about_close_button">Schließen</string>
+    <string name="about_goog_button">Lizenzinformationen</string>
     <string name="title_flight_detail_activity">Flugbucheintrag</string>
     <string name="title_flight_detail_prefs">Wähle Flugbucheinträge</string>
     <string name="title_list_preference_activity">Einstellungen Flugliste</string>
@@ -69,8 +70,10 @@
     <string name="start_powered">Motorschirm</string>
     <string name="start_estart">E-Start</string>
     <string name="start_ground">Groundhandling</string>
+    <string name="alltogether">Gesamt</string>
+    <string name="year">Jahr</string>
     <string name="authors_note">        Kontakt: pulce@gmx.at \n
-        Copyright 2015 \n
+        Copyright 2016 \n
         Florian Hauser</string>
     <string name="legal_notice">
     Herzlicher Dank geht an Lars Seifert für die Unterstützung und die AirTome Tag-Icons.
@@ -111,5 +114,12 @@
     <string name="picClearCacheTitle">Zwischenspeicher löschen</string>
     <string name="picClearCacheSummary">Lösche Flash und Ram Zwischenspeicher</string>
     <string name="toastCacheCleared">Zwischenspeicher gelöscht</string>
+    <string name="main_menu_chart">Öffne Statistiken</string>
+    <string name="title_chartfragment">Statistiken</string>
+    <string name="xspinner_prompt">Kategorien</string>
+    <string name="total">Anzahl</string>
+    <string name="month">Monat</string>
+    <string name="week">Woche</string>
+    <string name="permission_info">Fehlende Berechtigung zum Zugriff auf das Dateisystem. Diese Berechtigung ist nötig um das Flugbuch zu laden.</string>
 
 </resources>

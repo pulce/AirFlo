@@ -21,6 +21,7 @@ import android.widget.TextView;
 import com.airflo.datamodel.FlightData;
 import com.airflo.datamodel.Identi;
 import com.airflo.helpers.OnlyContext;
+import com.airflo.helpers.PredicateLayout;
 
 /**
  * This Class is part of AirFlo.
@@ -143,12 +144,12 @@ public class FlightDetailFragment extends Fragment {
                 }
                 if (identi.getKey().equals("tag")) {
                     if (mItem.getFromKey(identi.getKey()).length() > 0) {
-                        LinearLayout lnn = (LinearLayout) rootView
+                        PredicateLayout lnn = (PredicateLayout) rootView
                                 .findViewById(R.id.LinearAdditionLayout);
                         String[] tags = mItem.getFromKey(identi.getKey())
                                 .split(";");
                         for (String tag : tags) {
-                            if (tag.equals("off-field"))
+                            if (tag.equals("off-field") || tag.equals("offfield"))
                                 tag = "off_field";
                             int resID = getResources().getIdentifier(tag,
                                     "drawable", "com.airflo");

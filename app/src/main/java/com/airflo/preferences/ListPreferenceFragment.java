@@ -68,7 +68,7 @@ public class ListPreferenceFragment extends PreferenceFragment {
 		//Generate according Entry Strings.
 		String[] sortEntries = new String[sortValues.length];
 		for (int i = 0; i < sortEntries.length; i++)
-			sortEntries[i] = sortKeyToString(sortValues[i]);
+			sortEntries[i] = OnlyContext.sortKeyToString(sortValues[i]);
 		
 		//Make sorting category
 		PreferenceCategory cat = new PreferenceCategory(getActivity());
@@ -79,13 +79,13 @@ public class ListPreferenceFragment extends PreferenceFragment {
 		listPref.setEntries(sortEntries);
 		listPref.setEntryValues(sortValues);
 		listPref.setDialogTitle(R.string.list_pref_sort_criterium);
-		listPref.setSummary(sortKeyToString(root.getSharedPreferences().getString("list_pref_sort", "number")));
+		listPref.setSummary(OnlyContext.sortKeyToString(root.getSharedPreferences().getString("list_pref_sort", "number")));
 		listPref.setTitle(R.string.list_pref_sort_criterium);
 		cat.addPreference(listPref);
 		listPref.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
             public boolean onPreferenceChange(Preference preference,
                                               Object newValue) {
-                listPref.setSummary(sortKeyToString((String) newValue));
+                listPref.setSummary(OnlyContext.sortKeyToString((String) newValue));
                 return true;
             }
         });
@@ -120,21 +120,6 @@ public class ListPreferenceFragment extends PreferenceFragment {
 		this.setPreferenceScreen(root);
 	}
 	
-	/**
-	 * Method to get the Android resource string corresponding to a pref value.
-	 * @param sortkey Key
-	 * @return String Corresponding String
-	 */
-	private static String sortKeyToString(String sortkey) {
-		if (!sortkey.contains(";"))
-			return OnlyContext.rString(sortkey);
-		String[] sortkeys = sortkey.split(";");
-		String theString = OnlyContext.rString(sortkeys[0]);
-		for (int i = 1; i < sortkeys.length; i++)
-			theString += ("/" + OnlyContext.rString(sortkeys[i]));
-		return theString;
-	}
-
 	/**
 	 * Add three slider preferences to a category.
 	 * @param catTitle Category title

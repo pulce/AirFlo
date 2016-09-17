@@ -39,7 +39,8 @@ public class FilePreferenceFragment extends ListFragment {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		currentDir = new File(Environment.getExternalStorageDirectory().getPath());
+		Log.d("Dir:", Environment.getExternalStorageDirectory().getAbsolutePath());
+		currentDir = new File(Environment.getExternalStorageDirectory().getAbsolutePath());
 		fill(currentDir);
 	}
 

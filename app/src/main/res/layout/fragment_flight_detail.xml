@@ -18,13 +18,12 @@
         </TableLayout>
 
 
-            <LinearLayout
-                android:id="@+id/LinearAdditionLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="center" >
-            </LinearLayout>
+        <com.airflo.helpers.PredicateLayout
+            android:id="@+id/LinearAdditionLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+        </com.airflo.helpers.PredicateLayout>
     </LinearLayout>
 
 </ScrollView>

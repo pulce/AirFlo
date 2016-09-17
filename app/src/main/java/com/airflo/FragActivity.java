@@ -55,6 +55,10 @@ public class FragActivity extends AppCompatActivity {
 				setTitle(getString(R.string.title_flight_detail_prefs));
 				frag = new DetailPreferenceFragment();
 				break;
+			case FlightListActivity.CHART:
+				setTitle(getString(R.string.title_chartfragment));
+				frag = new ChartFragment();
+				break;
 			case FlightListActivity.FILE_CHOOSER:
 				setTitle(getString(R.string.title_file_preferece_activity));
 				frag = new FilePreferenceFragment();

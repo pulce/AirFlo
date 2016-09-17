@@ -44,14 +44,30 @@ public class AboutDialog {
 		TextView text = (TextView) dialog.findViewById(R.id.text);
 		text.setText(context.getString(R.string.about_airflo_version) + versionID);
 
+		TextView mpchart = (TextView) dialog.findViewById(R.id.mpchart_text);
+		mpchart.setText(Html.fromHtml(OnlyContext.getContext().getString(R.string.mp_chart_notice)));
+		mpchart.setMovementMethod(LinkMovementMethod.getInstance());
+
 		TextView mapquest = (TextView) dialog.findViewById(R.id.mapquest_text);
 		mapquest.setText(Html.fromHtml(OnlyContext.getContext().getString(R.string.mapquest_notice)));
 		mapquest.setMovementMethod(LinkMovementMethod.getInstance());
 
 		TextView goog = (TextView) dialog.findViewById(R.id.google_text);
-		goog.setText(context.getString(R.string.glide_cp) + "\n" + context.getString(R.string.about_google_api_legal) + "\n" + GoogleApiAvailability.getInstance().getOpenSourceSoftwareLicenseInfo(OnlyContext.getContext()));
+		goog.setText(context.getString(R.string.glide_cp) + "\n" + context.getString(R.string.about_google_api_legal) + "\n");
+
+		final Button googButton = (Button)dialog.findViewById(R.id.googButton);
+
 
 		Button confirmButton = (Button) dialog.findViewById(R.id.confButton);
+		googButton.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				TextView googLong = (TextView) dialog.findViewById(R.id.google_loong_text);
+				googLong.setText(GoogleApiAvailability.getInstance().getOpenSourceSoftwareLicenseInfo(OnlyContext.getContext()));
+				googButton.setVisibility(Button.INVISIBLE);
+			}
+		});
+
 		confirmButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {

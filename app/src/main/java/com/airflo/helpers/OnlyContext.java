@@ -56,4 +56,20 @@ public class OnlyContext extends Application {
 			return "";
 		}
 	}
+
+	/**
+	 * Method to get the Android resource string corresponding to a pref value.
+	 * @param sortkey Key
+	 * @return String Corresponding String
+	 */
+	public static String sortKeyToString(String sortkey) {
+		if (!sortkey.contains(";"))
+			return OnlyContext.rString(sortkey);
+		String[] sortkeys = sortkey.split(";");
+		String theString = OnlyContext.rString(sortkeys[0]);
+		for (int i = 1; i < sortkeys.length; i++)
+			theString += ("/" + OnlyContext.rString(sortkeys[i]));
+		return theString;
+	}
+
 }

@@ -4,6 +4,9 @@
         android:id="@+id/action_load"
         android:title="@string/main_menu_loadbook"></item>
     <item
+        android:id="@+id/action_chart"
+        android:title="@string/main_menu_chart"></item>
+    <item
         android:id="@+id/action_typesize"
         android:title="@string/main_menu_typesize"></item>
     <item

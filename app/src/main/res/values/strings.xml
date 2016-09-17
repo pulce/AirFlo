@@ -4,6 +4,7 @@
     <string name="app_name">AirFlo</string>
     <string name="about">About this App</string>
     <string name="about_close_button">Close</string>
+    <string name="about_goog_button">Show license</string>
     <string name="title_flight_detail_activity">Flight Detail</string>
     <string name="title_flight_detail_prefs">Select Flight Detail Items</string>
     <string name="title_list_preference_activity">Flight List Preferences</string>
@@ -32,6 +33,7 @@
     <string name="main_menu_loadbook">Load FlightBook</string>
     <string name="main_menu_typesize">Adjust Textsize</string>
     <string name="detail_pref_empty">--Hide empty fields in flight details--</string>
+    <string name="total">Quantity</string>
     <string name="number">Flightnumber</string>
     <string name="pilot">Pilot</string>
     <string name="date">Flight Date</string>
@@ -62,6 +64,7 @@
     <string name="olcfree">Free Flight</string>
     <string name="olctri">Free Triangle</string>
     <string name="olcfia">FAI Triangle</string>
+    <string name="xspinner_prompt">Items Axis</string>
     <string name="start_mountain">Mountain</string>
     <string name="start_winch">Winch</string>
     <string name="start_ultralight">Ultralight</string>
@@ -69,10 +72,14 @@
     <string name="start_powered">Powered</string>
     <string name="start_estart">E-Start</string>
     <string name="start_ground">Groundhandling</string>
+    <string name="alltogether">Total</string>
+    <string name="year">Year</string>
+    <string name="month">Month</string>
+    <string name="week">Week</string>
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
     <string name="authors_note">        Contact: pulce@gmx.at \n
-        Copyright 2015 \n
+        Copyright 2016 \n
         by Florian Hauser</string>
     <string name="legal_notice">    Credits go out to Lars Seifert for 
     support and for supplying the original AirTome tag icons.
@@ -116,7 +123,7 @@
     authors and should not be interpreted as representing official policies, either expressed
     or implied, of Google, Inc.</string>
 
-
+    <string name="mp_chart_notice" translatable="false">Stats realized with <![CDATA[<a href="https://github.com/PhilJay/MPAndroidChart">MPAndroidChart</a>]]></string>
     <string name="mapquest_notice" translatable="false">Data, imagery and map information provided by <![CDATA[<a href="http://www.thunderforest.com/">Thunderforest</a>]]>, MapQuest, <![CDATA[<a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>]]> and contributors, <![CDATA[<a href="http://opendatacommons.org/licenses/odbl/">ODbL</a>]]></string>
     <string name="title_activity_maps">Map</string>
     <string name="menu_open_map">Open Map</string>
@@ -126,7 +133,7 @@
     <string name="already_latest_version">You are using the latest version</string>
     <string name="new_version_available">is available, you use</string>
     <string name="about_airflo_version">"AirFlo Version "</string>
-    <string name="about_google_api_legal" translatable="false">Maps are also provided by Google Maps API. Legal notice:</string>
+    <string name="about_google_api_legal" translatable="false">Maps are also provided by Google Maps API.</string>
     <string name="title_activity_image" translatable="false">ImageActivity</string>
 
     <string name="hello_world">Hello world!</string>
@@ -144,5 +151,7 @@
     <string name="picClearCacheSummary">Clear memory and disk cache</string>
     <string name="clearCacheIdentifierString" translatable="false">list_pic_clear_cache</string>
     <string name="toastCacheCleared">Cache cleared</string>
-
+    <string name="main_menu_chart">Open Stats</string>
+    <string name="title_chartfragment">Statistics</string>
+    <string name="permission_info">No permission for access to external storage - this permission is needed for the app to load the flightbook.</string>
 </resources>

@@ -44,18 +44,23 @@ import com.airflo.preferences.ListPreferenceFragment;
 import com.airflo.preferences.PicPreferenceFragment;
 import com.airflo.preferences.TypePreferenceFragment;
 
+import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Parcelable;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
@@ -63,6 +68,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -72,17 +78,21 @@ public class FlightListActivity extends AppCompatActivity implements
     private SharedPreferences sharedPrefs;
 
     public static final String APPURL = "https://github.com/pulce/AirFlo/releases/latest";
-    public static final String VERSIONID = "1.1.0";
+    public static final String VERSIONID = "1.2.0";
     public static final int TYPE_PREF = 1;
     public static final int FILE_CHOOSER = 2;
     public static final int LIST_SET = 3;
     public static final int LIST_DETAIL = 4;
     public static final int FLIGHT_DETAIL = 5;
     public static final int PIC_PREF = 6;
+    public static final int CHART = 7;
     private static final String LIST_STATE = "listState";
     private Parcelable savedListState = null;
     private boolean mTwoPane;
     private FlightDetailFragment flightDetailFragment;
+
+    private static final int PERMISSION_WRITE_STORAGE = 42;
+    private static boolean writePermitted = false;
 
     TextView mDrawerTitle;
     ListView mDrawerList;
@@ -95,6 +105,18 @@ public class FlightListActivity extends AppCompatActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flight_list);
+        writePermitted = (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED);
+        if (!writePermitted) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(FlightListActivity.this,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                Toast.makeText(this, R.string.permission_info, Toast.LENGTH_LONG).show();
+            } else {
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                        PERMISSION_WRITE_STORAGE);
+            }
+        }
+
 
         sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
 
@@ -145,6 +167,7 @@ public class FlightListActivity extends AppCompatActivity implements
         });
 
         mNavItems.add(new NavItem(R.id.action_load, R.string.main_menu_loadbook, R.drawable.ic_input_grey600_36dp));
+        mNavItems.add(new NavItem(R.id.action_chart, R.string.main_menu_chart, R.drawable.ic_insert_chart_grey600_36dp));
         mNavItems.add(new NavItem(R.id.action_typesize, R.string.main_menu_typesize, R.drawable.ic_mode_edit_grey600_36dp));
         mNavItems.add(new NavItem(R.id.action_preflist, R.string.main_menu_preflist, R.drawable.ic_view_list_grey600_36dp));
         mNavItems.add(new NavItem(R.id.action_prefdetail, R.string.main_menu_prefdetail, R.drawable.ic_description_grey600_36dp));
@@ -243,16 +266,31 @@ public class FlightListActivity extends AppCompatActivity implements
 
 
     private boolean onMenuItemSelected(int id) {
-        mDrawerLayout.closeDrawer(Gravity.START);
+        mDrawerLayout.closeDrawer(Gravity.LEFT);
         switch (id) {
             case R.id.action_load:
-                if (mTwoPane) {
+                if (!writePermitted)
+                    Toast.makeText(this, R.string.permission_info, Toast.LENGTH_LONG).show();
+                else if (mTwoPane) {
                     getSupportFragmentManager().beginTransaction()
                             .replace(R.id.flight_detail_container, new FilePreferenceFragment()).commit();
                 } else {
                     Intent fileChooser = new Intent(getApplicationContext(),
                             FragActivity.class).putExtra("FragType", FILE_CHOOSER);
                     startActivity(fileChooser);
+                }
+                break;
+            case R.id.action_chart:
+                if (ParseFlightBook.isBookLoaded()) {
+                    if (mTwoPane) {
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.flight_detail_container, new ChartFragment()).commit();
+                        setTitle(getString(R.string.title_chartfragment));
+                    } else {
+                        Intent listDetailActivity = new Intent(getApplicationContext(),
+                                FragActivity.class).putExtra("FragType", CHART);
+                        startActivity(listDetailActivity);
+                    }
                 }
                 break;
             case R.id.action_typesize:
@@ -361,6 +399,7 @@ public class FlightListActivity extends AppCompatActivity implements
      * fails, it will start the filechooser activity.
      */
     private void tryToLoadBook() {
+        if (!writePermitted) return;
         if (!ParseFlightBook.loadBook(sharedPrefs.getString("flightBookName",
                 Environment.getExternalStorageDirectory().getPath() + "flightbookexample.xml"))) {
             Intent fileChooser = new Intent(getApplicationContext(),
@@ -383,4 +422,23 @@ public class FlightListActivity extends AppCompatActivity implements
         }
         refreshView();
     }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           @NonNull String permissions[], @NonNull int[] grantResults) {
+        switch (requestCode) {
+            case PERMISSION_WRITE_STORAGE: {
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    writePermitted = true;
+                    Intent intent = getIntent();
+                    finish();
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(this, R.string.permission_info, Toast.LENGTH_LONG).show();
+                }
+            }
+        }
+    }
+
 }

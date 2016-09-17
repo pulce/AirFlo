@@ -36,7 +36,6 @@ public class MapsActivity extends AppCompatActivity {
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
     private ArrayList<LatLng> pois = new ArrayList<>();
-    //private SimpleDateFormat ft = new SimpleDateFormat ("HHmmss");
 
     private String[] tileServer;
     private String[] mapNames;
@@ -158,7 +157,6 @@ public class MapsActivity extends AppCompatActivity {
                 mMap.addMarker(new MarkerOptions().position(pois.get(pois.size()-1)).title("Landing"));
                 for (LatLng poi:pois) {
                     rectOptions.add(poi);
-                    //mMap.addMarker(new MarkerOptions().position(new LatLng(poi.lon, poi.lat)).title("Marker"));
                 }
                 mMap.addPolyline(rectOptions);
                 CameraPosition cameraPosition = new CameraPosition.Builder()
@@ -177,11 +175,8 @@ public class MapsActivity extends AppCompatActivity {
     }
 
     private LatLng parseIgcLine(String line) throws ParseException {
-        //Date dt = ft.parse(line.substring(1, 7));
         double lat = lonToDec(line.substring(7, 14));
         double lon = lonToDec(line.substring(15, 23));
-        //int pres = Integer.parseInt(line.substring(25, 30));
-        //int hei = (pres == 0) ? Integer.parseInt(line.substring(30, 35)) : pres;
         return new LatLng(lat,lon);
     }
 
